@@ -24,5 +24,9 @@ build/
 .DS_Store
 Thumbs.db
 
+# Generated results
+chapters/*/results/
+.pytest_cache/
+
 # Environment variables
 .env
