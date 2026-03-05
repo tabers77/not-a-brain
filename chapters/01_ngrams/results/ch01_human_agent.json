@@ -1,0 +1,5366 @@
+{
+  "agent": "human_agent",
+  "chapter": "01_ngrams",
+  "metrics": {
+    "accuracy": 1.0,
+    "avg_score": 1.0,
+    "abstention_rate": 0.16666666666666666,
+    "hallucination_rate": 0.0,
+    "n_samples": 300,
+    "calibration_error": 0.19333333333333336,
+    "per_task": {
+      "arithmetic": {
+        "accuracy": 1.0,
+        "n_samples": 50
+      },
+      "copy": {
+        "accuracy": 1.0,
+        "n_samples": 50
+      },
+      "grammar": {
+        "accuracy": 1.0,
+        "n_samples": 50
+      },
+      "knowledge_qa": {
+        "accuracy": 1.0,
+        "n_samples": 50
+      },
+      "compositional": {
+        "accuracy": 1.0,
+        "n_samples": 50
+      },
+      "unknown": {
+        "accuracy": 1.0,
+        "n_samples": 50
+      }
+    }
+  },
+  "results": [
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "94",
+      "answer": "94",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 35 59 =",
+      "trace": [
+        "Received: ADD 35 59 =...",
+        "Identified task type: arithmetic",
+        "Computing 35 + 59 = 94"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "4272",
+      "answer": "4272",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "MUL 89 48 =",
+      "trace": [
+        "Received: MUL 89 48 =...",
+        "Identified task type: arithmetic",
+        "Computing 89 * 48 = 4272"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "134",
+      "answer": "134",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 61 73 =",
+      "trace": [
+        "Received: ADD 61 73 =...",
+        "Identified task type: arithmetic",
+        "Computing 61 + 73 = 134"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "5100",
+      "answer": "5100",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "MUL 60 85 =",
+      "trace": [
+        "Received: MUL 60 85 =...",
+        "Identified task type: arithmetic",
+        "Computing 60 * 85 = 5100"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "77",
+      "answer": "77",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 9 68 =",
+      "trace": [
+        "Received: ADD 9 68 =...",
+        "Identified task type: arithmetic",
+        "Computing 9 + 68 = 77"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "124",
+      "answer": "124",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 58 66 =",
+      "trace": [
+        "Received: ADD 58 66 =...",
+        "Identified task type: arithmetic",
+        "Computing 58 + 66 = 124"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "56",
+      "answer": "56",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 14 42 =",
+      "trace": [
+        "Received: ADD 14 42 =...",
+        "Identified task type: arithmetic",
+        "Computing 14 + 42 = 56"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "33",
+      "answer": "33",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "SUB 42 9 =",
+      "trace": [
+        "Received: SUB 42 9 =...",
+        "Identified task type: arithmetic",
+        "Computing 42 - 9 = 33"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "0",
+      "answer": "0",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "MUL 93 0 =",
+      "trace": [
+        "Received: MUL 93 0 =...",
+        "Identified task type: arithmetic",
+        "Computing 93 * 0 = 0"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "5916",
+      "answer": "5916",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "MUL 87 68 =",
+      "trace": [
+        "Received: MUL 87 68 =...",
+        "Identified task type: arithmetic",
+        "Computing 87 * 68 = 5916"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "80",
+      "answer": "80",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "SUB 81 1 =",
+      "trace": [
+        "Received: SUB 81 1 =...",
+        "Identified task type: arithmetic",
+        "Computing 81 - 1 = 80"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "2080",
+      "answer": "2080",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "MUL 40 52 =",
+      "trace": [
+        "Received: MUL 40 52 =...",
+        "Identified task type: arithmetic",
+        "Computing 40 * 52 = 2080"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "4",
+      "answer": "4",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "SUB 21 17 =",
+      "trace": [
+        "Received: SUB 21 17 =...",
+        "Identified task type: arithmetic",
+        "Computing 21 - 17 = 4"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "300",
+      "answer": "300",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "MUL 6 50 =",
+      "trace": [
+        "Received: MUL 6 50 =...",
+        "Identified task type: arithmetic",
+        "Computing 6 * 50 = 300"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "49",
+      "answer": "49",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 6 43 =",
+      "trace": [
+        "Received: ADD 6 43 =...",
+        "Identified task type: arithmetic",
+        "Computing 6 + 43 = 49"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "2059",
+      "answer": "2059",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "MUL 29 71 =",
+      "trace": [
+        "Received: MUL 29 71 =...",
+        "Identified task type: arithmetic",
+        "Computing 29 * 71 = 2059"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "36",
+      "answer": "36",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "SUB 56 20 =",
+      "trace": [
+        "Received: SUB 56 20 =...",
+        "Identified task type: arithmetic",
+        "Computing 56 - 20 = 36"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "188",
+      "answer": "188",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 89 99 =",
+      "trace": [
+        "Received: ADD 89 99 =...",
+        "Identified task type: arithmetic",
+        "Computing 89 + 99 = 188"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "5",
+      "answer": "5",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "SUB 29 24 =",
+      "trace": [
+        "Received: SUB 29 24 =...",
+        "Identified task type: arithmetic",
+        "Computing 29 - 24 = 5"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "83",
+      "answer": "83",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 62 21 =",
+      "trace": [
+        "Received: ADD 62 21 =...",
+        "Identified task type: arithmetic",
+        "Computing 62 + 21 = 83"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "49",
+      "answer": "49",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "SUB 84 35 =",
+      "trace": [
+        "Received: SUB 84 35 =...",
+        "Identified task type: arithmetic",
+        "Computing 84 - 35 = 49"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "62",
+      "answer": "62",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "SUB 71 9 =",
+      "trace": [
+        "Received: SUB 71 9 =...",
+        "Identified task type: arithmetic",
+        "Computing 71 - 9 = 62"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "170",
+      "answer": "170",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 99 71 =",
+      "trace": [
+        "Received: ADD 99 71 =...",
+        "Identified task type: arithmetic",
+        "Computing 99 + 71 = 170"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "134",
+      "answer": "134",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 89 45 =",
+      "trace": [
+        "Received: ADD 89 45 =...",
+        "Identified task type: arithmetic",
+        "Computing 89 + 45 = 134"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "680",
+      "answer": "680",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "MUL 68 10 =",
+      "trace": [
+        "Received: MUL 68 10 =...",
+        "Identified task type: arithmetic",
+        "Computing 68 * 10 = 680"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "1204",
+      "answer": "1204",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "MUL 86 14 =",
+      "trace": [
+        "Received: MUL 86 14 =...",
+        "Identified task type: arithmetic",
+        "Computing 86 * 14 = 1204"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "272",
+      "answer": "272",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "MUL 16 17 =",
+      "trace": [
+        "Received: MUL 16 17 =...",
+        "Identified task type: arithmetic",
+        "Computing 16 * 17 = 272"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "80",
+      "answer": "80",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 69 11 =",
+      "trace": [
+        "Received: ADD 69 11 =...",
+        "Identified task type: arithmetic",
+        "Computing 69 + 11 = 80"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "162",
+      "answer": "162",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 97 65 =",
+      "trace": [
+        "Received: ADD 97 65 =...",
+        "Identified task type: arithmetic",
+        "Computing 97 + 65 = 162"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "1008",
+      "answer": "1008",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "MUL 48 21 =",
+      "trace": [
+        "Received: MUL 48 21 =...",
+        "Identified task type: arithmetic",
+        "Computing 48 * 21 = 1008"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "62",
+      "answer": "62",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "SUB 91 29 =",
+      "trace": [
+        "Received: SUB 91 29 =...",
+        "Identified task type: arithmetic",
+        "Computing 91 - 29 = 62"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "7469",
+      "answer": "7469",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "MUL 77 97 =",
+      "trace": [
+        "Received: MUL 77 97 =...",
+        "Identified task type: arithmetic",
+        "Computing 77 * 97 = 7469"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "860",
+      "answer": "860",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "MUL 20 43 =",
+      "trace": [
+        "Received: MUL 20 43 =...",
+        "Identified task type: arithmetic",
+        "Computing 20 * 43 = 860"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "123",
+      "answer": "123",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 43 80 =",
+      "trace": [
+        "Received: ADD 43 80 =...",
+        "Identified task type: arithmetic",
+        "Computing 43 + 80 = 123"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "15",
+      "answer": "15",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "SUB 39 24 =",
+      "trace": [
+        "Received: SUB 39 24 =...",
+        "Identified task type: arithmetic",
+        "Computing 39 - 24 = 15"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "108",
+      "answer": "108",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 94 14 =",
+      "trace": [
+        "Received: ADD 94 14 =...",
+        "Identified task type: arithmetic",
+        "Computing 94 + 14 = 108"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "145",
+      "answer": "145",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 63 82 =",
+      "trace": [
+        "Received: ADD 63 82 =...",
+        "Identified task type: arithmetic",
+        "Computing 63 + 82 = 145"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "93",
+      "answer": "93",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "MUL 93 1 =",
+      "trace": [
+        "Received: MUL 93 1 =...",
+        "Identified task type: arithmetic",
+        "Computing 93 * 1 = 93"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "135",
+      "answer": "135",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 48 87 =",
+      "trace": [
+        "Received: ADD 48 87 =...",
+        "Identified task type: arithmetic",
+        "Computing 48 + 87 = 135"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "102",
+      "answer": "102",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 30 72 =",
+      "trace": [
+        "Received: ADD 30 72 =...",
+        "Identified task type: arithmetic",
+        "Computing 30 + 72 = 102"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "16",
+      "answer": "16",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "SUB 93 77 =",
+      "trace": [
+        "Received: SUB 93 77 =...",
+        "Identified task type: arithmetic",
+        "Computing 93 - 77 = 16"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "41",
+      "answer": "41",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 20 21 =",
+      "trace": [
+        "Received: ADD 20 21 =...",
+        "Identified task type: arithmetic",
+        "Computing 20 + 21 = 41"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "15",
+      "answer": "15",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "SUB 47 32 =",
+      "trace": [
+        "Received: SUB 47 32 =...",
+        "Identified task type: arithmetic",
+        "Computing 47 - 32 = 15"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "70",
+      "answer": "70",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "SUB 75 5 =",
+      "trace": [
+        "Received: SUB 75 5 =...",
+        "Identified task type: arithmetic",
+        "Computing 75 - 5 = 70"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "100",
+      "answer": "100",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "MUL 50 2 =",
+      "trace": [
+        "Received: MUL 50 2 =...",
+        "Identified task type: arithmetic",
+        "Computing 50 * 2 = 100"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "4",
+      "answer": "4",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "SUB 20 16 =",
+      "trace": [
+        "Received: SUB 20 16 =...",
+        "Identified task type: arithmetic",
+        "Computing 20 - 16 = 4"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "107",
+      "answer": "107",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 36 71 =",
+      "trace": [
+        "Received: ADD 36 71 =...",
+        "Identified task type: arithmetic",
+        "Computing 36 + 71 = 107"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "22",
+      "answer": "22",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "SUB 37 15 =",
+      "trace": [
+        "Received: SUB 37 15 =...",
+        "Identified task type: arithmetic",
+        "Computing 37 - 15 = 22"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "45",
+      "answer": "45",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "SUB 54 9 =",
+      "trace": [
+        "Received: SUB 54 9 =...",
+        "Identified task type: arithmetic",
+        "Computing 54 - 9 = 45"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "65",
+      "answer": "65",
+      "confidence": 0.99,
+      "abstained": false,
+      "task_name": "arithmetic",
+      "is_unanswerable": false,
+      "prompt": "ADD 45 20 =",
+      "trace": [
+        "Received: ADD 45 20 =...",
+        "Identified task type: arithmetic",
+        "Computing 45 + 20 = 65"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "ygcsioxp",
+      "answer": "ygcsioxp",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: ygcsioxp|",
+      "trace": [
+        "Received: COPY: ygcsioxp|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'ygcsioxp'",
+        "Reproducing from working memory: 'ygcsioxp'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "tcwabsc",
+      "answer": "tcwabsc",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: tcwabsc|",
+      "trace": [
+        "Received: COPY: tcwabsc|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'tcwabsc'",
+        "Reproducing from working memory: 'tcwabsc'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "ngnv",
+      "answer": "ngnv",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: ngnv|",
+      "trace": [
+        "Received: COPY: ngnv|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'ngnv'",
+        "Reproducing from working memory: 'ngnv'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "ad",
+      "answer": "ad",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: ad|",
+      "trace": [
+        "Received: COPY: ad|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'ad'",
+        "Reproducing from working memory: 'ad'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "ggvudan",
+      "answer": "ggvudan",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: ggvudan|",
+      "trace": [
+        "Received: COPY: ggvudan|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'ggvudan'",
+        "Reproducing from working memory: 'ggvudan'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "feywjf",
+      "answer": "feywjf",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: feywjf|",
+      "trace": [
+        "Received: COPY: feywjf|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'feywjf'",
+        "Reproducing from working memory: 'feywjf'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "djfynmud",
+      "answer": "djfynmud",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: djfynmud|",
+      "trace": [
+        "Received: COPY: djfynmud|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'djfynmud'",
+        "Reproducing from working memory: 'djfynmud'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "iqj",
+      "answer": "iqj",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: iqj|",
+      "trace": [
+        "Received: COPY: iqj|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'iqj'",
+        "Reproducing from working memory: 'iqj'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "xfyixd",
+      "answer": "xfyixd",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: xfyixd|",
+      "trace": [
+        "Received: COPY: xfyixd|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'xfyixd'",
+        "Reproducing from working memory: 'xfyixd'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "xt",
+      "answer": "xt",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: xt|",
+      "trace": [
+        "Received: COPY: xt|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'xt'",
+        "Reproducing from working memory: 'xt'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "ipm",
+      "answer": "ipm",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: ipm|",
+      "trace": [
+        "Received: COPY: ipm|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'ipm'",
+        "Reproducing from working memory: 'ipm'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "jtpg",
+      "answer": "jtpg",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: jtpg|",
+      "trace": [
+        "Received: COPY: jtpg|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'jtpg'",
+        "Reproducing from working memory: 'jtpg'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "joiqiufoje",
+      "answer": "joiqiufoje",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: joiqiufoje|",
+      "trace": [
+        "Received: COPY: joiqiufoje|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'joiqiufoje'",
+        "Reproducing from working memory: 'joiqiufoje'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "kqezq",
+      "answer": "kqezq",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: kqezq|",
+      "trace": [
+        "Received: COPY: kqezq|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'kqezq'",
+        "Reproducing from working memory: 'kqezq'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "tltqc",
+      "answer": "tltqc",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: tltqc|",
+      "trace": [
+        "Received: COPY: tltqc|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'tltqc'",
+        "Reproducing from working memory: 'tltqc'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "rnzes",
+      "answer": "rnzes",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: rnzes|",
+      "trace": [
+        "Received: COPY: rnzes|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'rnzes'",
+        "Reproducing from working memory: 'rnzes'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "kx",
+      "answer": "kx",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: kx|",
+      "trace": [
+        "Received: COPY: kx|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'kx'",
+        "Reproducing from working memory: 'kx'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "szcancno",
+      "answer": "szcancno",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: szcancno|",
+      "trace": [
+        "Received: COPY: szcancno|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'szcancno'",
+        "Reproducing from working memory: 'szcancno'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "cag",
+      "answer": "cag",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: cag|",
+      "trace": [
+        "Received: COPY: cag|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'cag'",
+        "Reproducing from working memory: 'cag'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "yhj",
+      "answer": "yhj",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: yhj|",
+      "trace": [
+        "Received: COPY: yhj|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'yhj'",
+        "Reproducing from working memory: 'yhj'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "dexiw",
+      "answer": "dexiw",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: dexiw|",
+      "trace": [
+        "Received: COPY: dexiw|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'dexiw'",
+        "Reproducing from working memory: 'dexiw'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "frvugc",
+      "answer": "frvugc",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: frvugc|",
+      "trace": [
+        "Received: COPY: frvugc|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'frvugc'",
+        "Reproducing from working memory: 'frvugc'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "kag",
+      "answer": "kag",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: kag|",
+      "trace": [
+        "Received: COPY: kag|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'kag'",
+        "Reproducing from working memory: 'kag'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "mkqbou",
+      "answer": "mkqbou",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: mkqbou|",
+      "trace": [
+        "Received: COPY: mkqbou|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'mkqbou'",
+        "Reproducing from working memory: 'mkqbou'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "prtlgl",
+      "answer": "prtlgl",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: prtlgl|",
+      "trace": [
+        "Received: COPY: prtlgl|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'prtlgl'",
+        "Reproducing from working memory: 'prtlgl'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "bwkw",
+      "answer": "bwkw",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: bwkw|",
+      "trace": [
+        "Received: COPY: bwkw|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'bwkw'",
+        "Reproducing from working memory: 'bwkw'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "vhgzzuqtnw",
+      "answer": "vhgzzuqtnw",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: vhgzzuqtnw|",
+      "trace": [
+        "Received: COPY: vhgzzuqtnw|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'vhgzzuqtnw'",
+        "Reproducing from working memory: 'vhgzzuqtnw'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "ftlrfxqzr",
+      "answer": "ftlrfxqzr",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: ftlrfxqzr|",
+      "trace": [
+        "Received: COPY: ftlrfxqzr|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'ftlrfxqzr'",
+        "Reproducing from working memory: 'ftlrfxqzr'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "aatsle",
+      "answer": "aatsle",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: aatsle|",
+      "trace": [
+        "Received: COPY: aatsle|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'aatsle'",
+        "Reproducing from working memory: 'aatsle'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "nbcr",
+      "answer": "nbcr",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: nbcr|",
+      "trace": [
+        "Received: COPY: nbcr|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'nbcr'",
+        "Reproducing from working memory: 'nbcr'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "vrjlfrk",
+      "answer": "vrjlfrk",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: vrjlfrk|",
+      "trace": [
+        "Received: COPY: vrjlfrk|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'vrjlfrk'",
+        "Reproducing from working memory: 'vrjlfrk'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "xrj",
+      "answer": "xrj",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: xrj|",
+      "trace": [
+        "Received: COPY: xrj|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'xrj'",
+        "Reproducing from working memory: 'xrj'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "vk",
+      "answer": "vk",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: vk|",
+      "trace": [
+        "Received: COPY: vk|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'vk'",
+        "Reproducing from working memory: 'vk'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "gufbfucp",
+      "answer": "gufbfucp",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: gufbfucp|",
+      "trace": [
+        "Received: COPY: gufbfucp|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'gufbfucp'",
+        "Reproducing from working memory: 'gufbfucp'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "nrrmlsum",
+      "answer": "nrrmlsum",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: nrrmlsum|",
+      "trace": [
+        "Received: COPY: nrrmlsum|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'nrrmlsum'",
+        "Reproducing from working memory: 'nrrmlsum'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "dgylec",
+      "answer": "dgylec",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: dgylec|",
+      "trace": [
+        "Received: COPY: dgylec|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'dgylec'",
+        "Reproducing from working memory: 'dgylec'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "vdalmk",
+      "answer": "vdalmk",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: vdalmk|",
+      "trace": [
+        "Received: COPY: vdalmk|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'vdalmk'",
+        "Reproducing from working memory: 'vdalmk'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "sdtvj",
+      "answer": "sdtvj",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: sdtvj|",
+      "trace": [
+        "Received: COPY: sdtvj|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'sdtvj'",
+        "Reproducing from working memory: 'sdtvj'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "neevej",
+      "answer": "neevej",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: neevej|",
+      "trace": [
+        "Received: COPY: neevej|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'neevej'",
+        "Reproducing from working memory: 'neevej'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "rq",
+      "answer": "rq",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: rq|",
+      "trace": [
+        "Received: COPY: rq|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'rq'",
+        "Reproducing from working memory: 'rq'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "iehnqreijn",
+      "answer": "iehnqreijn",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: iehnqreijn|",
+      "trace": [
+        "Received: COPY: iehnqreijn|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'iehnqreijn'",
+        "Reproducing from working memory: 'iehnqreijn'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "claphpuc",
+      "answer": "claphpuc",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: claphpuc|",
+      "trace": [
+        "Received: COPY: claphpuc|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'claphpuc'",
+        "Reproducing from working memory: 'claphpuc'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "jhyqbeozz",
+      "answer": "jhyqbeozz",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: jhyqbeozz|",
+      "trace": [
+        "Received: COPY: jhyqbeozz|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'jhyqbeozz'",
+        "Reproducing from working memory: 'jhyqbeozz'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "lre",
+      "answer": "lre",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: lre|",
+      "trace": [
+        "Received: COPY: lre|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'lre'",
+        "Reproducing from working memory: 'lre'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "yxrbcag",
+      "answer": "yxrbcag",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: yxrbcag|",
+      "trace": [
+        "Received: COPY: yxrbcag|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'yxrbcag'",
+        "Reproducing from working memory: 'yxrbcag'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "og",
+      "answer": "og",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: og|",
+      "trace": [
+        "Received: COPY: og|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'og'",
+        "Reproducing from working memory: 'og'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "yopuwagxbt",
+      "answer": "yopuwagxbt",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: yopuwagxbt|",
+      "trace": [
+        "Received: COPY: yopuwagxbt|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'yopuwagxbt'",
+        "Reproducing from working memory: 'yopuwagxbt'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "eunfe",
+      "answer": "eunfe",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: eunfe|",
+      "trace": [
+        "Received: COPY: eunfe|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'eunfe'",
+        "Reproducing from working memory: 'eunfe'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "ojtayxbjbu",
+      "answer": "ojtayxbjbu",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: ojtayxbjbu|",
+      "trace": [
+        "Received: COPY: ojtayxbjbu|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'ojtayxbjbu'",
+        "Reproducing from working memory: 'ojtayxbjbu'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "vh",
+      "answer": "vh",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "copy",
+      "is_unanswerable": false,
+      "prompt": "COPY: vh|",
+      "trace": [
+        "Received: COPY: vh|...",
+        "Identified task type: copy",
+        "Stored sequence in working memory: 'vh'",
+        "Reproducing from working memory: 'vh'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: (",
+      "trace": [
+        "Received: CHECK: (...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: (",
+        "  Push '(' -> stack: ['(']",
+        "Final stack: ['('] -> invalid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( { } ) { }",
+      "trace": [
+        "Received: CHECK: ( { } ) { }...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( { } ) { }",
+        "  Push '(' -> stack: ['(']",
+        "  Push '{' -> stack: ['(', '{']",
+        "  Pop for '}' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "  Push '{' -> stack: ['{']",
+        "  Pop for '}' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( )",
+      "trace": [
+        "Received: CHECK: ( )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( )",
+        "  Push '(' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: { )",
+      "trace": [
+        "Received: CHECK: { )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: { )",
+        "  Push '{' -> stack: ['{']",
+        "  Mismatch: ')' vs stack top '{'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: (",
+      "trace": [
+        "Received: CHECK: (...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: (",
+        "  Push '(' -> stack: ['(']",
+        "Final stack: ['('] -> invalid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: [ { ( } { } } ]",
+      "trace": [
+        "Received: CHECK: [ { ( } { } } ]...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: [ { ( } { } } ]",
+        "  Push '[' -> stack: ['[']",
+        "  Push '{' -> stack: ['[', '{']",
+        "  Push '(' -> stack: ['[', '{', '(']",
+        "  Mismatch: '}' vs stack top '('"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( )",
+      "trace": [
+        "Received: CHECK: ( )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( )",
+        "  Push '(' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: [ [ { } ]",
+      "trace": [
+        "Received: CHECK: [ [ { } ]...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: [ [ { } ]",
+        "  Push '[' -> stack: ['[']",
+        "  Push '[' -> stack: ['[', '[']",
+        "  Push '{' -> stack: ['[', '[', '{']",
+        "  Pop for '}' -> stack: ['[', '[']",
+        "  Pop for ']' -> stack: ['[']",
+        "Final stack: ['['] -> invalid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( ( ( ) ) )",
+      "trace": [
+        "Received: CHECK: ( ( ( ) ) )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( ( ( ) ) )",
+        "  Push '(' -> stack: ['(']",
+        "  Push '(' -> stack: ['(', '(']",
+        "  Push '(' -> stack: ['(', '(', '(']",
+        "  Pop for ')' -> stack: ['(', '(']",
+        "  Pop for ')' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: { ( [ ] ) }",
+      "trace": [
+        "Received: CHECK: { ( [ ] ) }...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: { ( [ ] ) }",
+        "  Push '{' -> stack: ['{']",
+        "  Push '(' -> stack: ['{', '(']",
+        "  Push '[' -> stack: ['{', '(', '[']",
+        "  Pop for ']' -> stack: ['{', '(']",
+        "  Pop for ')' -> stack: ['{']",
+        "  Pop for '}' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ] )",
+      "trace": [
+        "Received: CHECK: ] )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ] )",
+        "  Mismatch: ']' vs stack top 'empty'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: }",
+      "trace": [
+        "Received: CHECK: }...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: }",
+        "  Mismatch: '}' vs stack top 'empty'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: (",
+      "trace": [
+        "Received: CHECK: (...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: (",
+        "  Push '(' -> stack: ['(']",
+        "Final stack: ['('] -> invalid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( {",
+      "trace": [
+        "Received: CHECK: ( {...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( {",
+        "  Push '(' -> stack: ['(']",
+        "  Push '{' -> stack: ['(', '{']",
+        "Final stack: ['(', '{'] -> invalid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: [ [ ] [ ] ( ( ) { [ ] ) ]",
+      "trace": [
+        "Received: CHECK: [ [ ] [ ] ( ( ) { [ ] ) ]...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: [ [ ] [ ] ( ( ) { [ ] ) ]",
+        "  Push '[' -> stack: ['[']",
+        "  Push '[' -> stack: ['[', '[']",
+        "  Pop for ']' -> stack: ['[']",
+        "  Push '[' -> stack: ['[', '[']",
+        "  Pop for ']' -> stack: ['[']",
+        "  Push '(' -> stack: ['[', '(']",
+        "  Push '(' -> stack: ['[', '(', '(']",
+        "  Pop for ')' -> stack: ['[', '(']",
+        "  Push '{' -> stack: ['[', '(', '{']",
+        "  Push '[' -> stack: ['[', '(', '{', '[']",
+        "  Pop for ']' -> stack: ['[', '(', '{']",
+        "  Mismatch: ')' vs stack top '{'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( ) [ ]",
+      "trace": [
+        "Received: CHECK: ( ) [ ]...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( ) [ ]",
+        "  Push '(' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "  Push '[' -> stack: ['[']",
+        "  Pop for ']' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: { ] } }",
+      "trace": [
+        "Received: CHECK: { ] } }...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: { ] } }",
+        "  Push '{' -> stack: ['{']",
+        "  Mismatch: ']' vs stack top '{'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: { }",
+      "trace": [
+        "Received: CHECK: { }...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: { }",
+        "  Push '{' -> stack: ['{']",
+        "  Pop for '}' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( )",
+      "trace": [
+        "Received: CHECK: ( )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( )",
+        "  Push '(' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: (",
+      "trace": [
+        "Received: CHECK: (...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: (",
+        "  Push '(' -> stack: ['(']",
+        "Final stack: ['('] -> invalid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: { ( { }",
+      "trace": [
+        "Received: CHECK: { ( { }...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: { ( { }",
+        "  Push '{' -> stack: ['{']",
+        "  Push '(' -> stack: ['{', '(']",
+        "  Push '{' -> stack: ['{', '(', '{']",
+        "  Pop for '}' -> stack: ['{', '(']",
+        "Final stack: ['{', '('] -> invalid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: { } { ( ) { [ ] ( ) } [ ] } { ( ) } [ { } ] [ [ ] { { } ( ) } ]",
+      "trace": [
+        "Received: CHECK: { } { ( ) { [ ] ( ) } [ ] } { ( ) } [ { } ] [ [ ] { { } ( ) } ]...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: { } { ( ) { [ ] ( ) } [ ] } { ( ) } [ { } ] [ [ ] { { } ( ) } ]",
+        "  Push '{' -> stack: ['{']",
+        "  Pop for '}' -> stack: []",
+        "  Push '{' -> stack: ['{']",
+        "  Push '(' -> stack: ['{', '(']",
+        "  Pop for ')' -> stack: ['{']",
+        "  Push '{' -> stack: ['{', '{']",
+        "  Push '[' -> stack: ['{', '{', '[']",
+        "  Pop for ']' -> stack: ['{', '{']",
+        "  Push '(' -> stack: ['{', '{', '(']",
+        "  Pop for ')' -> stack: ['{', '{']",
+        "  Pop for '}' -> stack: ['{']",
+        "  Push '[' -> stack: ['{', '[']",
+        "  Pop for ']' -> stack: ['{']",
+        "  Pop for '}' -> stack: []",
+        "  Push '{' -> stack: ['{']",
+        "  Push '(' -> stack: ['{', '(']",
+        "  Pop for ')' -> stack: ['{']",
+        "  Pop for '}' -> stack: []",
+        "  Push '[' -> stack: ['[']",
+        "  Push '{' -> stack: ['[', '{']",
+        "  Pop for '}' -> stack: ['[']",
+        "  Pop for ']' -> stack: []",
+        "  Push '[' -> stack: ['[']",
+        "  Push '[' -> stack: ['[', '[']",
+        "  Pop for ']' -> stack: ['[']",
+        "  Push '{' -> stack: ['[', '{']",
+        "  Push '{' -> stack: ['[', '{', '{']",
+        "  Pop for '}' -> stack: ['[', '{']",
+        "  Push '(' -> stack: ['[', '{', '(']",
+        "  Pop for ')' -> stack: ['[', '{']",
+        "  Pop for '}' -> stack: ['[']",
+        "  Pop for ']' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: [ [ { } ( ) ] ] ( [ ( ) ] )",
+      "trace": [
+        "Received: CHECK: [ [ { } ( ) ] ] ( [ ( ) ] )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: [ [ { } ( ) ] ] ( [ ( ) ] )",
+        "  Push '[' -> stack: ['[']",
+        "  Push '[' -> stack: ['[', '[']",
+        "  Push '{' -> stack: ['[', '[', '{']",
+        "  Pop for '}' -> stack: ['[', '[']",
+        "  Push '(' -> stack: ['[', '[', '(']",
+        "  Pop for ')' -> stack: ['[', '[']",
+        "  Pop for ']' -> stack: ['[']",
+        "  Pop for ']' -> stack: []",
+        "  Push '(' -> stack: ['(']",
+        "  Push '[' -> stack: ['(', '[']",
+        "  Push '(' -> stack: ['(', '[', '(']",
+        "  Pop for ')' -> stack: ['(', '[']",
+        "  Pop for ']' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: [ [ ] ]",
+      "trace": [
+        "Received: CHECK: [ [ ] ]...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: [ [ ] ]",
+        "  Push '[' -> stack: ['[']",
+        "  Push '[' -> stack: ['[', '[']",
+        "  Pop for ']' -> stack: ['[']",
+        "  Pop for ']' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( ] )",
+      "trace": [
+        "Received: CHECK: ( ] )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( ] )",
+        "  Push '(' -> stack: ['(']",
+        "  Mismatch: ']' vs stack top '('"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: { { }",
+      "trace": [
+        "Received: CHECK: { { }...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: { { }",
+        "  Push '{' -> stack: ['{']",
+        "  Push '{' -> stack: ['{', '{']",
+        "  Pop for '}' -> stack: ['{']",
+        "Final stack: ['{'] -> invalid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( )",
+      "trace": [
+        "Received: CHECK: ( )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( )",
+        "  Push '(' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( [ { } { { } ] ) [ [ ( ) ] ( { } ) { ( ) ( ) { } } [ ] [ ] ] ( ( ) { } )",
+      "trace": [
+        "Received: CHECK: ( [ { } { { } ] ) [ [ ( ) ] ( { } ) { ( ) ( ) { } } [ ] [ ] ] ( ( ) { } )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( [ { } { { } ] ) [ [ ( ) ] ( { } ) { ( ) ( ) { } } [ ] [ ] ] ( ( ) { } )",
+        "  Push '(' -> stack: ['(']",
+        "  Push '[' -> stack: ['(', '[']",
+        "  Push '{' -> stack: ['(', '[', '{']",
+        "  Pop for '}' -> stack: ['(', '[']",
+        "  Push '{' -> stack: ['(', '[', '{']",
+        "  Push '{' -> stack: ['(', '[', '{', '{']",
+        "  Pop for '}' -> stack: ['(', '[', '{']",
+        "  Mismatch: ']' vs stack top '{'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( )",
+      "trace": [
+        "Received: CHECK: ( )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( )",
+        "  Push '(' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( ) [ { } ] { [ ] { } [ ] } ]",
+      "trace": [
+        "Received: CHECK: ( ) [ { } ] { [ ] { } [ ] } ]...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( ) [ { } ] { [ ] { } [ ] } ]",
+        "  Push '(' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "  Push '[' -> stack: ['[']",
+        "  Push '{' -> stack: ['[', '{']",
+        "  Pop for '}' -> stack: ['[']",
+        "  Pop for ']' -> stack: []",
+        "  Push '{' -> stack: ['{']",
+        "  Push '[' -> stack: ['{', '[']",
+        "  Pop for ']' -> stack: ['{']",
+        "  Push '{' -> stack: ['{', '{']",
+        "  Pop for '}' -> stack: ['{']",
+        "  Push '[' -> stack: ['{', '[']",
+        "  Pop for ']' -> stack: ['{']",
+        "  Pop for '}' -> stack: []",
+        "  Mismatch: ']' vs stack top 'empty'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: )",
+      "trace": [
+        "Received: CHECK: )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: )",
+        "  Mismatch: ')' vs stack top 'empty'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( [ ] ( ) { } { } { { } } ) { }",
+      "trace": [
+        "Received: CHECK: ( [ ] ( ) { } { } { { } } ) { }...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( [ ] ( ) { } { } { { } } ) { }",
+        "  Push '(' -> stack: ['(']",
+        "  Push '[' -> stack: ['(', '[']",
+        "  Pop for ']' -> stack: ['(']",
+        "  Push '(' -> stack: ['(', '(']",
+        "  Pop for ')' -> stack: ['(']",
+        "  Push '{' -> stack: ['(', '{']",
+        "  Pop for '}' -> stack: ['(']",
+        "  Push '{' -> stack: ['(', '{']",
+        "  Pop for '}' -> stack: ['(']",
+        "  Push '{' -> stack: ['(', '{']",
+        "  Push '{' -> stack: ['(', '{', '{']",
+        "  Pop for '}' -> stack: ['(', '{']",
+        "  Pop for '}' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "  Push '{' -> stack: ['{']",
+        "  Pop for '}' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: { )",
+      "trace": [
+        "Received: CHECK: { )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: { )",
+        "  Push '{' -> stack: ['{']",
+        "  Mismatch: ')' vs stack top '{'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( [ ] [ { } ] { ( ) } )",
+      "trace": [
+        "Received: CHECK: ( [ ] [ { } ] { ( ) } )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( [ ] [ { } ] { ( ) } )",
+        "  Push '(' -> stack: ['(']",
+        "  Push '[' -> stack: ['(', '[']",
+        "  Pop for ']' -> stack: ['(']",
+        "  Push '[' -> stack: ['(', '[']",
+        "  Push '{' -> stack: ['(', '[', '{']",
+        "  Pop for '}' -> stack: ['(', '[']",
+        "  Pop for ']' -> stack: ['(']",
+        "  Push '{' -> stack: ['(', '{']",
+        "  Push '(' -> stack: ['(', '{', '(']",
+        "  Pop for ')' -> stack: ['(', '{']",
+        "  Pop for '}' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( )",
+      "trace": [
+        "Received: CHECK: ( )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( )",
+        "  Push '(' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: [ ] [ [ ] ] ( [ ] )",
+      "trace": [
+        "Received: CHECK: [ ] [ [ ] ] ( [ ] )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: [ ] [ [ ] ] ( [ ] )",
+        "  Push '[' -> stack: ['[']",
+        "  Pop for ']' -> stack: []",
+        "  Push '[' -> stack: ['[']",
+        "  Push '[' -> stack: ['[', '[']",
+        "  Pop for ']' -> stack: ['[']",
+        "  Pop for ']' -> stack: []",
+        "  Push '(' -> stack: ['(']",
+        "  Push '[' -> stack: ['(', '[']",
+        "  Pop for ']' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( [ ]",
+      "trace": [
+        "Received: CHECK: ( [ ]...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( [ ]",
+        "  Push '(' -> stack: ['(']",
+        "  Push '[' -> stack: ['(', '[']",
+        "  Pop for ']' -> stack: ['(']",
+        "Final stack: ['('] -> invalid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: { ] }",
+      "trace": [
+        "Received: CHECK: { ] }...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: { ] }",
+        "  Push '{' -> stack: ['{']",
+        "  Mismatch: ']' vs stack top '{'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: [ ] ( ( ( ) ( ) ) )",
+      "trace": [
+        "Received: CHECK: [ ] ( ( ( ) ( ) ) )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: [ ] ( ( ( ) ( ) ) )",
+        "  Push '[' -> stack: ['[']",
+        "  Pop for ']' -> stack: []",
+        "  Push '(' -> stack: ['(']",
+        "  Push '(' -> stack: ['(', '(']",
+        "  Push '(' -> stack: ['(', '(', '(']",
+        "  Pop for ')' -> stack: ['(', '(']",
+        "  Push '(' -> stack: ['(', '(', '(']",
+        "  Pop for ')' -> stack: ['(', '(']",
+        "  Pop for ')' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( )",
+      "trace": [
+        "Received: CHECK: ( )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( )",
+        "  Push '(' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: )",
+      "trace": [
+        "Received: CHECK: )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: )",
+        "  Mismatch: ')' vs stack top 'empty'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( { ( ) } { )",
+      "trace": [
+        "Received: CHECK: ( { ( ) } { )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( { ( ) } { )",
+        "  Push '(' -> stack: ['(']",
+        "  Push '{' -> stack: ['(', '{']",
+        "  Push '(' -> stack: ['(', '{', '(']",
+        "  Pop for ')' -> stack: ['(', '{']",
+        "  Pop for '}' -> stack: ['(']",
+        "  Push '{' -> stack: ['(', '{']",
+        "  Mismatch: ')' vs stack top '{'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: [ ] [ ( { } ) ] [ { } ] ]",
+      "trace": [
+        "Received: CHECK: [ ] [ ( { } ) ] [ { } ] ]...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: [ ] [ ( { } ) ] [ { } ] ]",
+        "  Push '[' -> stack: ['[']",
+        "  Pop for ']' -> stack: []",
+        "  Push '[' -> stack: ['[']",
+        "  Push '(' -> stack: ['[', '(']",
+        "  Push '{' -> stack: ['[', '(', '{']",
+        "  Pop for '}' -> stack: ['[', '(']",
+        "  Pop for ')' -> stack: ['[']",
+        "  Pop for ']' -> stack: []",
+        "  Push '[' -> stack: ['[']",
+        "  Push '{' -> stack: ['[', '{']",
+        "  Pop for '}' -> stack: ['[']",
+        "  Pop for ']' -> stack: []",
+        "  Mismatch: ']' vs stack top 'empty'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: [ ( )",
+      "trace": [
+        "Received: CHECK: [ ( )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: [ ( )",
+        "  Push '[' -> stack: ['[']",
+        "  Push '(' -> stack: ['[', '(']",
+        "  Pop for ')' -> stack: ['[']",
+        "Final stack: ['['] -> invalid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( ]",
+      "trace": [
+        "Received: CHECK: ( ]...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( ]",
+        "  Push '(' -> stack: ['(']",
+        "  Mismatch: ']' vs stack top '('"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: (",
+      "trace": [
+        "Received: CHECK: (...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: (",
+        "  Push '(' -> stack: ['(']",
+        "Final stack: ['('] -> invalid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: { } ( )",
+      "trace": [
+        "Received: CHECK: { } ( )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: { } ( )",
+        "  Push '{' -> stack: ['{']",
+        "  Pop for '}' -> stack: []",
+        "  Push '(' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: { { [ ] [ ] ( ) } [ { } [ ] { } ] }",
+      "trace": [
+        "Received: CHECK: { { [ ] [ ] ( ) } [ { } [ ] { } ] }...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: { { [ ] [ ] ( ) } [ { } [ ] { } ] }",
+        "  Push '{' -> stack: ['{']",
+        "  Push '{' -> stack: ['{', '{']",
+        "  Push '[' -> stack: ['{', '{', '[']",
+        "  Pop for ']' -> stack: ['{', '{']",
+        "  Push '[' -> stack: ['{', '{', '[']",
+        "  Pop for ']' -> stack: ['{', '{']",
+        "  Push '(' -> stack: ['{', '{', '(']",
+        "  Pop for ')' -> stack: ['{', '{']",
+        "  Pop for '}' -> stack: ['{']",
+        "  Push '[' -> stack: ['{', '[']",
+        "  Push '{' -> stack: ['{', '[', '{']",
+        "  Pop for '}' -> stack: ['{', '[']",
+        "  Push '[' -> stack: ['{', '[', '[']",
+        "  Pop for ']' -> stack: ['{', '[']",
+        "  Push '{' -> stack: ['{', '[', '{']",
+        "  Pop for '}' -> stack: ['{', '[']",
+        "  Pop for ']' -> stack: ['{']",
+        "  Pop for '}' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "invalid",
+      "answer": "invalid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: (",
+      "trace": [
+        "Received: CHECK: (...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: (",
+        "  Push '(' -> stack: ['(']",
+        "Final stack: ['('] -> invalid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "valid",
+      "answer": "valid",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "grammar",
+      "is_unanswerable": false,
+      "prompt": "CHECK: ( ( { } { } ) )",
+      "trace": [
+        "Received: CHECK: ( ( { } { } ) )...",
+        "Identified task type: grammar",
+        "Checking bracket sequence: ( ( { } { } ) )",
+        "  Push '(' -> stack: ['(']",
+        "  Push '(' -> stack: ['(', '(']",
+        "  Push '{' -> stack: ['(', '(', '{']",
+        "  Pop for '}' -> stack: ['(', '(']",
+        "  Push '{' -> stack: ['(', '(', '{']",
+        "  Pop for '}' -> stack: ['(', '(']",
+        "  Pop for ')' -> stack: ['(']",
+        "  Pop for ')' -> stack: []",
+        "Final stack: [] -> valid"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "7",
+      "answer": "7",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: 7 is number of continents. Q: number of continents?",
+      "trace": [
+        "Received: FACT: 7 is number of continents. Q: number of continents?...",
+        "Identified task type: knowledge_qa",
+        "Question: number of continents",
+        "  Stored fact: 'number of continents' -> '7'",
+        "Found in working memory: '7'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "ottawa",
+      "answer": "ottawa",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: ottawa is capital of canada. Q: capital of canada?",
+      "trace": [
+        "Received: FACT: ottawa is capital of canada. Q: capital of canada?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of canada",
+        "  Stored fact: 'capital of canada' -> 'ottawa'",
+        "Found in working memory: 'ottawa'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "madrid",
+      "answer": "madrid",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: madrid is capital of spain. Q: capital of spain?",
+      "trace": [
+        "Received: FACT: madrid is capital of spain. Q: capital of spain?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of spain",
+        "  Stored fact: 'capital of spain' -> 'madrid'",
+        "Found in working memory: 'madrid'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "1969",
+      "answer": "1969",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: 1969 is year of first moon landing. Q: year of first moon landing?",
+      "trace": [
+        "Received: FACT: 1969 is year of first moon landing. Q: year of first moon landing?...",
+        "Identified task type: knowledge_qa",
+        "Question: year of first moon landing",
+        "  Stored fact: 'year of first moon landing' -> '1969'",
+        "Found in working memory: '1969'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "earth",
+      "answer": "earth",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: earth is third planet from the sun. Q: third planet from the sun?",
+      "trace": [
+        "Received: FACT: earth is third planet from the sun. Q: third planet from the sun?...",
+        "Identified task type: knowledge_qa",
+        "Question: third planet from the sun",
+        "  Stored fact: 'third planet from the sun' -> 'earth'",
+        "Found in working memory: 'earth'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "python",
+      "answer": "python",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: python is language created by guido van rossum. Q: language created by guido van rossum?",
+      "trace": [
+        "Received: FACT: python is language created by guido van rossum. Q: language created by gui...",
+        "Identified task type: knowledge_qa",
+        "Question: language created by guido van rossum",
+        "  Stored fact: 'language created by guido van rossum' -> 'python'",
+        "Found in working memory: 'python'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "lisbon",
+      "answer": "lisbon",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: lisbon is capital of portugal. Q: capital of portugal?",
+      "trace": [
+        "Received: FACT: lisbon is capital of portugal. Q: capital of portugal?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of portugal",
+        "  Stored fact: 'capital of portugal' -> 'lisbon'",
+        "Found in working memory: 'lisbon'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "water",
+      "answer": "water",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: water is chemical formula of water. Q: chemical formula of water?",
+      "trace": [
+        "Received: FACT: water is chemical formula of water. Q: chemical formula of water?...",
+        "Identified task type: knowledge_qa",
+        "Question: chemical formula of water",
+        "  Stored fact: 'chemical formula of water' -> 'water'",
+        "Found in working memory: 'water'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "canberra",
+      "answer": "canberra",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: canberra is capital of australia. Q: capital of australia?",
+      "trace": [
+        "Received: FACT: canberra is capital of australia. Q: capital of australia?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of australia",
+        "  Stored fact: 'capital of australia' -> 'canberra'",
+        "Found in working memory: 'canberra'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "mars",
+      "answer": "mars",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: mars is fourth planet from the sun. Q: fourth planet from the sun?",
+      "trace": [
+        "Received: FACT: mars is fourth planet from the sun. Q: fourth planet from the sun?...",
+        "Identified task type: knowledge_qa",
+        "Question: fourth planet from the sun",
+        "  Stored fact: 'fourth planet from the sun' -> 'mars'",
+        "Found in working memory: 'mars'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "rome",
+      "answer": "rome",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: rome is capital of italy. Q: capital of italy?",
+      "trace": [
+        "Received: FACT: rome is capital of italy. Q: capital of italy?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of italy",
+        "  Stored fact: 'capital of italy' -> 'rome'",
+        "Found in working memory: 'rome'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "berlin",
+      "answer": "berlin",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: berlin is capital of germany. Q: capital of germany?",
+      "trace": [
+        "Received: FACT: berlin is capital of germany. Q: capital of germany?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of germany",
+        "  Stored fact: 'capital of germany' -> 'berlin'",
+        "Found in working memory: 'berlin'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "linux",
+      "answer": "linux",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: linux is kernel created by linus torvalds. Q: kernel created by linus torvalds?",
+      "trace": [
+        "Received: FACT: linux is kernel created by linus torvalds. Q: kernel created by linus torv...",
+        "Identified task type: knowledge_qa",
+        "Question: kernel created by linus torvalds",
+        "  Stored fact: 'kernel created by linus torvalds' -> 'linux'",
+        "Found in working memory: 'linux'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "oxygen",
+      "answer": "oxygen",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: oxygen is chemical formula of oxygen. Q: chemical formula of oxygen?",
+      "trace": [
+        "Received: FACT: oxygen is chemical formula of oxygen. Q: chemical formula of oxygen?...",
+        "Identified task type: knowledge_qa",
+        "Question: chemical formula of oxygen",
+        "  Stored fact: 'chemical formula of oxygen' -> 'oxygen'",
+        "Found in working memory: 'oxygen'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "paris",
+      "answer": "paris",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: paris is capital of france. Q: capital of france?",
+      "trace": [
+        "Received: FACT: paris is capital of france. Q: capital of france?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of france",
+        "  Stored fact: 'capital of france' -> 'paris'",
+        "Found in working memory: 'paris'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "1989",
+      "answer": "1989",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: 1989 is year the berlin wall fell. Q: year the berlin wall fell?",
+      "trace": [
+        "Received: FACT: 1989 is year the berlin wall fell. Q: year the berlin wall fell?...",
+        "Identified task type: knowledge_qa",
+        "Question: year the berlin wall fell",
+        "  Stored fact: 'year the berlin wall fell' -> '1989'",
+        "Found in working memory: '1989'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "tokyo",
+      "answer": "tokyo",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: tokyo is capital of japan. Q: capital of japan?",
+      "trace": [
+        "Received: FACT: tokyo is capital of japan. Q: capital of japan?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of japan",
+        "  Stored fact: 'capital of japan' -> 'tokyo'",
+        "Found in working memory: 'tokyo'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "earth",
+      "answer": "earth",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: earth is third planet from the sun. Q: third planet from the sun?",
+      "trace": [
+        "Received: FACT: earth is third planet from the sun. Q: third planet from the sun?...",
+        "Identified task type: knowledge_qa",
+        "Question: third planet from the sun",
+        "  Stored fact: 'third planet from the sun' -> 'earth'",
+        "Found in working memory: 'earth'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "madrid",
+      "answer": "madrid",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: madrid is capital of spain. Q: capital of spain?",
+      "trace": [
+        "Received: FACT: madrid is capital of spain. Q: capital of spain?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of spain",
+        "  Stored fact: 'capital of spain' -> 'madrid'",
+        "Found in working memory: 'madrid'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "jupiter",
+      "answer": "jupiter",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: jupiter is largest planet in solar system. Q: largest planet in solar system?",
+      "trace": [
+        "Received: FACT: jupiter is largest planet in solar system. Q: largest planet in solar syst...",
+        "Identified task type: knowledge_qa",
+        "Question: largest planet in solar system",
+        "  Stored fact: 'largest planet in solar system' -> 'jupiter'",
+        "Found in working memory: 'jupiter'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "jupiter",
+      "answer": "jupiter",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: jupiter is largest planet in solar system. Q: largest planet in solar system?",
+      "trace": [
+        "Received: FACT: jupiter is largest planet in solar system. Q: largest planet in solar syst...",
+        "Identified task type: knowledge_qa",
+        "Question: largest planet in solar system",
+        "  Stored fact: 'largest planet in solar system' -> 'jupiter'",
+        "Found in working memory: 'jupiter'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "earth",
+      "answer": "earth",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: earth is third planet from the sun. Q: third planet from the sun?",
+      "trace": [
+        "Received: FACT: earth is third planet from the sun. Q: third planet from the sun?...",
+        "Identified task type: knowledge_qa",
+        "Question: third planet from the sun",
+        "  Stored fact: 'third planet from the sun' -> 'earth'",
+        "Found in working memory: 'earth'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "jupiter",
+      "answer": "jupiter",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: jupiter is largest planet in solar system. Q: largest planet in solar system?",
+      "trace": [
+        "Received: FACT: jupiter is largest planet in solar system. Q: largest planet in solar syst...",
+        "Identified task type: knowledge_qa",
+        "Question: largest planet in solar system",
+        "  Stored fact: 'largest planet in solar system' -> 'jupiter'",
+        "Found in working memory: 'jupiter'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "jupiter",
+      "answer": "jupiter",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: jupiter is largest planet in solar system. Q: largest planet in solar system?",
+      "trace": [
+        "Received: FACT: jupiter is largest planet in solar system. Q: largest planet in solar syst...",
+        "Identified task type: knowledge_qa",
+        "Question: largest planet in solar system",
+        "  Stored fact: 'largest planet in solar system' -> 'jupiter'",
+        "Found in working memory: 'jupiter'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "7",
+      "answer": "7",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: 7 is number of continents. Q: number of continents?",
+      "trace": [
+        "Received: FACT: 7 is number of continents. Q: number of continents?...",
+        "Identified task type: knowledge_qa",
+        "Question: number of continents",
+        "  Stored fact: 'number of continents' -> '7'",
+        "Found in working memory: '7'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "mars",
+      "answer": "mars",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: mars is fourth planet from the sun. Q: fourth planet from the sun?",
+      "trace": [
+        "Received: FACT: mars is fourth planet from the sun. Q: fourth planet from the sun?...",
+        "Identified task type: knowledge_qa",
+        "Question: fourth planet from the sun",
+        "  Stored fact: 'fourth planet from the sun' -> 'mars'",
+        "Found in working memory: 'mars'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "1969",
+      "answer": "1969",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: 1969 is year of first moon landing. Q: year of first moon landing?",
+      "trace": [
+        "Received: FACT: 1969 is year of first moon landing. Q: year of first moon landing?...",
+        "Identified task type: knowledge_qa",
+        "Question: year of first moon landing",
+        "  Stored fact: 'year of first moon landing' -> '1969'",
+        "Found in working memory: '1969'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "berlin",
+      "answer": "berlin",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: berlin is capital of germany. Q: capital of germany?",
+      "trace": [
+        "Received: FACT: berlin is capital of germany. Q: capital of germany?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of germany",
+        "  Stored fact: 'capital of germany' -> 'berlin'",
+        "Found in working memory: 'berlin'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "rome",
+      "answer": "rome",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: rome is capital of italy. Q: capital of italy?",
+      "trace": [
+        "Received: FACT: rome is capital of italy. Q: capital of italy?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of italy",
+        "  Stored fact: 'capital of italy' -> 'rome'",
+        "Found in working memory: 'rome'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "tokyo",
+      "answer": "tokyo",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: tokyo is capital of japan. Q: capital of japan?",
+      "trace": [
+        "Received: FACT: tokyo is capital of japan. Q: capital of japan?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of japan",
+        "  Stored fact: 'capital of japan' -> 'tokyo'",
+        "Found in working memory: 'tokyo'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "mars",
+      "answer": "mars",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: mars is fourth planet from the sun. Q: fourth planet from the sun?",
+      "trace": [
+        "Received: FACT: mars is fourth planet from the sun. Q: fourth planet from the sun?...",
+        "Identified task type: knowledge_qa",
+        "Question: fourth planet from the sun",
+        "  Stored fact: 'fourth planet from the sun' -> 'mars'",
+        "Found in working memory: 'mars'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "jupiter",
+      "answer": "jupiter",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: jupiter is largest planet in solar system. Q: largest planet in solar system?",
+      "trace": [
+        "Received: FACT: jupiter is largest planet in solar system. Q: largest planet in solar syst...",
+        "Identified task type: knowledge_qa",
+        "Question: largest planet in solar system",
+        "  Stored fact: 'largest planet in solar system' -> 'jupiter'",
+        "Found in working memory: 'jupiter'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "5",
+      "answer": "5",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: 5 is number of oceans. Q: number of oceans?",
+      "trace": [
+        "Received: FACT: 5 is number of oceans. Q: number of oceans?...",
+        "Identified task type: knowledge_qa",
+        "Question: number of oceans",
+        "  Stored fact: 'number of oceans' -> '5'",
+        "Found in working memory: '5'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "lisbon",
+      "answer": "lisbon",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: lisbon is capital of portugal. Q: capital of portugal?",
+      "trace": [
+        "Received: FACT: lisbon is capital of portugal. Q: capital of portugal?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of portugal",
+        "  Stored fact: 'capital of portugal' -> 'lisbon'",
+        "Found in working memory: 'lisbon'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "oxygen",
+      "answer": "oxygen",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: oxygen is chemical formula of oxygen. Q: chemical formula of oxygen?",
+      "trace": [
+        "Received: FACT: oxygen is chemical formula of oxygen. Q: chemical formula of oxygen?...",
+        "Identified task type: knowledge_qa",
+        "Question: chemical formula of oxygen",
+        "  Stored fact: 'chemical formula of oxygen' -> 'oxygen'",
+        "Found in working memory: 'oxygen'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "lisbon",
+      "answer": "lisbon",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: lisbon is capital of portugal. Q: capital of portugal?",
+      "trace": [
+        "Received: FACT: lisbon is capital of portugal. Q: capital of portugal?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of portugal",
+        "  Stored fact: 'capital of portugal' -> 'lisbon'",
+        "Found in working memory: 'lisbon'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "oxygen",
+      "answer": "oxygen",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: oxygen is chemical formula of oxygen. Q: chemical formula of oxygen?",
+      "trace": [
+        "Received: FACT: oxygen is chemical formula of oxygen. Q: chemical formula of oxygen?...",
+        "Identified task type: knowledge_qa",
+        "Question: chemical formula of oxygen",
+        "  Stored fact: 'chemical formula of oxygen' -> 'oxygen'",
+        "Found in working memory: 'oxygen'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "canberra",
+      "answer": "canberra",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: canberra is capital of australia. Q: capital of australia?",
+      "trace": [
+        "Received: FACT: canberra is capital of australia. Q: capital of australia?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of australia",
+        "  Stored fact: 'capital of australia' -> 'canberra'",
+        "Found in working memory: 'canberra'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "earth",
+      "answer": "earth",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: earth is third planet from the sun. Q: third planet from the sun?",
+      "trace": [
+        "Received: FACT: earth is third planet from the sun. Q: third planet from the sun?...",
+        "Identified task type: knowledge_qa",
+        "Question: third planet from the sun",
+        "  Stored fact: 'third planet from the sun' -> 'earth'",
+        "Found in working memory: 'earth'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "madrid",
+      "answer": "madrid",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: madrid is capital of spain. Q: capital of spain?",
+      "trace": [
+        "Received: FACT: madrid is capital of spain. Q: capital of spain?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of spain",
+        "  Stored fact: 'capital of spain' -> 'madrid'",
+        "Found in working memory: 'madrid'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "lisbon",
+      "answer": "lisbon",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: lisbon is capital of portugal. Q: capital of portugal?",
+      "trace": [
+        "Received: FACT: lisbon is capital of portugal. Q: capital of portugal?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of portugal",
+        "  Stored fact: 'capital of portugal' -> 'lisbon'",
+        "Found in working memory: 'lisbon'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "jupiter",
+      "answer": "jupiter",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: jupiter is largest planet in solar system. Q: largest planet in solar system?",
+      "trace": [
+        "Received: FACT: jupiter is largest planet in solar system. Q: largest planet in solar syst...",
+        "Identified task type: knowledge_qa",
+        "Question: largest planet in solar system",
+        "  Stored fact: 'largest planet in solar system' -> 'jupiter'",
+        "Found in working memory: 'jupiter'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "oxygen",
+      "answer": "oxygen",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: oxygen is chemical formula of oxygen. Q: chemical formula of oxygen?",
+      "trace": [
+        "Received: FACT: oxygen is chemical formula of oxygen. Q: chemical formula of oxygen?...",
+        "Identified task type: knowledge_qa",
+        "Question: chemical formula of oxygen",
+        "  Stored fact: 'chemical formula of oxygen' -> 'oxygen'",
+        "Found in working memory: 'oxygen'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "5",
+      "answer": "5",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: 5 is number of oceans. Q: number of oceans?",
+      "trace": [
+        "Received: FACT: 5 is number of oceans. Q: number of oceans?...",
+        "Identified task type: knowledge_qa",
+        "Question: number of oceans",
+        "  Stored fact: 'number of oceans' -> '5'",
+        "Found in working memory: '5'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "berlin",
+      "answer": "berlin",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: berlin is capital of germany. Q: capital of germany?",
+      "trace": [
+        "Received: FACT: berlin is capital of germany. Q: capital of germany?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of germany",
+        "  Stored fact: 'capital of germany' -> 'berlin'",
+        "Found in working memory: 'berlin'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "5",
+      "answer": "5",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: 5 is number of oceans. Q: number of oceans?",
+      "trace": [
+        "Received: FACT: 5 is number of oceans. Q: number of oceans?...",
+        "Identified task type: knowledge_qa",
+        "Question: number of oceans",
+        "  Stored fact: 'number of oceans' -> '5'",
+        "Found in working memory: '5'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "7",
+      "answer": "7",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: 7 is number of continents. Q: number of continents?",
+      "trace": [
+        "Received: FACT: 7 is number of continents. Q: number of continents?...",
+        "Identified task type: knowledge_qa",
+        "Question: number of continents",
+        "  Stored fact: 'number of continents' -> '7'",
+        "Found in working memory: '7'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "water",
+      "answer": "water",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: water is chemical formula of water. Q: chemical formula of water?",
+      "trace": [
+        "Received: FACT: water is chemical formula of water. Q: chemical formula of water?...",
+        "Identified task type: knowledge_qa",
+        "Question: chemical formula of water",
+        "  Stored fact: 'chemical formula of water' -> 'water'",
+        "Found in working memory: 'water'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "berlin",
+      "answer": "berlin",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: berlin is capital of germany. Q: capital of germany?",
+      "trace": [
+        "Received: FACT: berlin is capital of germany. Q: capital of germany?...",
+        "Identified task type: knowledge_qa",
+        "Question: capital of germany",
+        "  Stored fact: 'capital of germany' -> 'berlin'",
+        "Found in working memory: 'berlin'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "linux",
+      "answer": "linux",
+      "confidence": 0.9,
+      "abstained": false,
+      "task_name": "knowledge_qa",
+      "is_unanswerable": false,
+      "prompt": "FACT: linux is kernel created by linus torvalds. Q: kernel created by linus torvalds?",
+      "trace": [
+        "Received: FACT: linux is kernel created by linus torvalds. Q: kernel created by linus torv...",
+        "Identified task type: knowledge_qa",
+        "Question: kernel created by linus torvalds",
+        "  Stored fact: 'kernel created by linus torvalds' -> 'linux'",
+        "Found in working memory: 'linux'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "aahlp",
+      "answer": "aahlp",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY lowercase THEN sort TO alpha",
+      "trace": [
+        "Received: APPLY lowercase THEN sort TO alpha...",
+        "Identified task type: compositional",
+        "Input: 'alpha', Operations: ['lowercase', 'sort']",
+        "  lowercase('alpha') -> 'alpha'",
+        "  sort('alpha') -> 'aahlp'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "mma",
+      "answer": "mma",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY last3 TO gamma",
+      "trace": [
+        "Received: APPLY last3 TO gamma...",
+        "Identified task type: compositional",
+        "Input: 'gamma', Operations: ['last3']",
+        "  last3('gamma') -> 'mma'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "query",
+      "answer": "query",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY lowercase TO query",
+      "trace": [
+        "Received: APPLY lowercase TO query...",
+        "Identified task type: compositional",
+        "Input: 'query', Operations: ['lowercase']",
+        "  lowercase('query') -> 'query'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "cigam",
+      "answer": "cigam",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY reverse TO magic",
+      "trace": [
+        "Received: APPLY reverse TO magic...",
+        "Identified task type: compositional",
+        "Input: 'magic', Operations: ['reverse']",
+        "  reverse('magic') -> 'cigam'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "tobor",
+      "answer": "tobor",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY lowercase THEN reverse TO robot",
+      "trace": [
+        "Received: APPLY lowercase THEN reverse TO robot...",
+        "Identified task type: compositional",
+        "Input: 'robot', Operations: ['lowercase', 'reverse']",
+        "  lowercase('robot') -> 'robot'",
+        "  reverse('robot') -> 'tobor'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "wrold",
+      "answer": "wrold",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY sort THEN reverse TO world",
+      "trace": [
+        "Received: APPLY sort THEN reverse TO world...",
+        "Identified task type: compositional",
+        "Input: 'world', Operations: ['sort', 'reverse']",
+        "  sort('world') -> 'dlorw'",
+        "  reverse('dlorw') -> 'wrold'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "PHA",
+      "answer": "PHA",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY uppercase THEN last3 TO alpha",
+      "trace": [
+        "Received: APPLY uppercase THEN last3 TO alpha...",
+        "Identified task type: compositional",
+        "Input: 'alpha', Operations: ['uppercase', 'last3']",
+        "  uppercase('alpha') -> 'ALPHA'",
+        "  last3('ALPHA') -> 'PHA'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "worldworld",
+      "answer": "worldworld",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY double THEN lowercase TO world",
+      "trace": [
+        "Received: APPLY double THEN lowercase TO world...",
+        "Identified task type: compositional",
+        "Input: 'world', Operations: ['double', 'lowercase']",
+        "  double('world') -> 'worldworld'",
+        "  lowercase('worldworld') -> 'worldworld'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "ainrt",
+      "answer": "ainrt",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY sort THEN lowercase TO train",
+      "trace": [
+        "Received: APPLY sort THEN lowercase TO train...",
+        "Identified task type: compositional",
+        "Input: 'train', Operations: ['sort', 'lowercase']",
+        "  sort('train') -> 'ainrt'",
+        "  lowercase('ainrt') -> 'ainrt'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "hellohello",
+      "answer": "hellohello",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY double TO hello",
+      "trace": [
+        "Received: APPLY double TO hello...",
+        "Identified task type: compositional",
+        "Input: 'hello', Operations: ['double']",
+        "  double('hello') -> 'hellohello'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "sig",
+      "answer": "sig",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY double THEN first3 TO sigma",
+      "trace": [
+        "Received: APPLY double THEN first3 TO sigma...",
+        "Identified task type: compositional",
+        "Input: 'sigma', Operations: ['double', 'first3']",
+        "  double('sigma') -> 'sigmasigma'",
+        "  first3('sigmasigma') -> 'sig'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "AGENT",
+      "answer": "AGENT",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY uppercase TO agent",
+      "trace": [
+        "Received: APPLY uppercase TO agent...",
+        "Identified task type: compositional",
+        "Input: 'agent', Operations: ['uppercase']",
+        "  uppercase('agent') -> 'AGENT'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "NIART",
+      "answer": "NIART",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY reverse THEN uppercase TO train",
+      "trace": [
+        "Received: APPLY reverse THEN uppercase TO train...",
+        "Identified task type: compositional",
+        "Input: 'train', Operations: ['reverse', 'uppercase']",
+        "  reverse('train') -> 'niart'",
+        "  uppercase('niart') -> 'NIART'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "DEL",
+      "answer": "DEL",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY uppercase THEN last3 TO model",
+      "trace": [
+        "Received: APPLY uppercase THEN last3 TO model...",
+        "Identified task type: compositional",
+        "Input: 'model', Operations: ['uppercase', 'last3']",
+        "  uppercase('model') -> 'MODEL'",
+        "  last3('MODEL') -> 'DEL'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "leh",
+      "answer": "leh",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY reverse THEN last3 TO hello",
+      "trace": [
+        "Received: APPLY reverse THEN last3 TO hello...",
+        "Identified task type: compositional",
+        "Input: 'hello', Operations: ['reverse', 'last3']",
+        "  reverse('hello') -> 'olleh'",
+        "  last3('olleh') -> 'leh'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "QUERY",
+      "answer": "QUERY",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY uppercase TO query",
+      "trace": [
+        "Received: APPLY uppercase TO query...",
+        "Identified task type: compositional",
+        "Input: 'query', Operations: ['uppercase']",
+        "  uppercase('query') -> 'QUERY'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "yreuq",
+      "answer": "yreuq",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY reverse THEN lowercase TO query",
+      "trace": [
+        "Received: APPLY reverse THEN lowercase TO query...",
+        "Identified task type: compositional",
+        "Input: 'query', Operations: ['reverse', 'lowercase']",
+        "  reverse('query') -> 'yreuq'",
+        "  lowercase('yreuq') -> 'yreuq'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "DLROW",
+      "answer": "DLROW",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY uppercase THEN reverse TO world",
+      "trace": [
+        "Received: APPLY uppercase THEN reverse TO world...",
+        "Identified task type: compositional",
+        "Input: 'world', Operations: ['uppercase', 'reverse']",
+        "  uppercase('world') -> 'WORLD'",
+        "  reverse('WORLD') -> 'DLROW'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "euq",
+      "answer": "euq",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY first3 THEN reverse TO query",
+      "trace": [
+        "Received: APPLY first3 THEN reverse TO query...",
+        "Identified task type: compositional",
+        "Input: 'query', Operations: ['first3', 'reverse']",
+        "  first3('query') -> 'que'",
+        "  reverse('que') -> 'euq'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "sigma",
+      "answer": "sigma",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY lowercase TO sigma",
+      "trace": [
+        "Received: APPLY lowercase TO sigma...",
+        "Identified task type: compositional",
+        "Input: 'sigma', Operations: ['lowercase']",
+        "  lowercase('sigma') -> 'sigma'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "bra",
+      "answer": "bra",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY first3 TO brain",
+      "trace": [
+        "Received: APPLY first3 TO brain...",
+        "Identified task type: compositional",
+        "Input: 'brain', Operations: ['first3']",
+        "  first3('brain') -> 'bra'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "AIN",
+      "answer": "AIN",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY last3 THEN uppercase TO train",
+      "trace": [
+        "Received: APPLY last3 THEN uppercase TO train...",
+        "Identified task type: compositional",
+        "Input: 'train', Operations: ['last3', 'uppercase']",
+        "  last3('train') -> 'ain'",
+        "  uppercase('ain') -> 'AIN'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "MODELMODEL",
+      "answer": "MODELMODEL",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY uppercase THEN double TO model",
+      "trace": [
+        "Received: APPLY uppercase THEN double TO model...",
+        "Identified task type: compositional",
+        "Input: 'model', Operations: ['uppercase', 'double']",
+        "  uppercase('model') -> 'MODEL'",
+        "  double('MODEL') -> 'MODELMODEL'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "ERY",
+      "answer": "ERY",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY last3 THEN uppercase TO query",
+      "trace": [
+        "Received: APPLY last3 THEN uppercase TO query...",
+        "Identified task type: compositional",
+        "Input: 'query', Operations: ['last3', 'uppercase']",
+        "  last3('query') -> 'ery'",
+        "  uppercase('ery') -> 'ERY'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "tra",
+      "answer": "tra",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY first3 TO train",
+      "trace": [
+        "Received: APPLY first3 TO train...",
+        "Identified task type: compositional",
+        "Input: 'train', Operations: ['first3']",
+        "  first3('train') -> 'tra'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "hiknt",
+      "answer": "hiknt",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY sort TO think",
+      "trace": [
+        "Received: APPLY sort TO think...",
+        "Identified task type: compositional",
+        "Input: 'think', Operations: ['sort']",
+        "  sort('think') -> 'hiknt'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "agentagent",
+      "answer": "agentagent",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY double TO agent",
+      "trace": [
+        "Received: APPLY double TO agent...",
+        "Identified task type: compositional",
+        "Input: 'agent', Operations: ['double']",
+        "  double('agent') -> 'agentagent'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "TRAIN",
+      "answer": "TRAIN",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY uppercase TO train",
+      "trace": [
+        "Received: APPLY uppercase TO train...",
+        "Identified task type: compositional",
+        "Input: 'train', Operations: ['uppercase']",
+        "  uppercase('train') -> 'TRAIN'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "sigmasigma",
+      "answer": "sigmasigma",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY double TO sigma",
+      "trace": [
+        "Received: APPLY double TO sigma...",
+        "Identified task type: compositional",
+        "Input: 'sigma', Operations: ['double']",
+        "  double('sigma') -> 'sigmasigma'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "ain",
+      "answer": "ain",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY last3 THEN sort TO brain",
+      "trace": [
+        "Received: APPLY last3 THEN sort TO brain...",
+        "Identified task type: compositional",
+        "Input: 'brain', Operations: ['last3', 'sort']",
+        "  last3('brain') -> 'ain'",
+        "  sort('ain') -> 'ain'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "alpha",
+      "answer": "alpha",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY lowercase TO alpha",
+      "trace": [
+        "Received: APPLY lowercase TO alpha...",
+        "Identified task type: compositional",
+        "Input: 'alpha', Operations: ['lowercase']",
+        "  lowercase('alpha') -> 'alpha'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "MOD",
+      "answer": "MOD",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY first3 THEN uppercase TO model",
+      "trace": [
+        "Received: APPLY first3 THEN uppercase TO model...",
+        "Identified task type: compositional",
+        "Input: 'model', Operations: ['first3', 'uppercase']",
+        "  first3('model') -> 'mod'",
+        "  uppercase('mod') -> 'MOD'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "amgis",
+      "answer": "amgis",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY reverse TO sigma",
+      "trace": [
+        "Received: APPLY reverse TO sigma...",
+        "Identified task type: compositional",
+        "Input: 'sigma', Operations: ['reverse']",
+        "  reverse('sigma') -> 'amgis'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "learn",
+      "answer": "learn",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY lowercase TO learn",
+      "trace": [
+        "Received: APPLY lowercase TO learn...",
+        "Identified task type: compositional",
+        "Input: 'learn', Operations: ['lowercase']",
+        "  lowercase('learn') -> 'learn'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "magicmagic",
+      "answer": "magicmagic",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY double TO magic",
+      "trace": [
+        "Received: APPLY double TO magic...",
+        "Identified task type: compositional",
+        "Input: 'magic', Operations: ['double']",
+        "  double('magic') -> 'magicmagic'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "think",
+      "answer": "think",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY lowercase TO think",
+      "trace": [
+        "Received: APPLY lowercase TO think...",
+        "Identified task type: compositional",
+        "Input: 'think', Operations: ['lowercase']",
+        "  lowercase('think') -> 'think'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "ent",
+      "answer": "ent",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY last3 TO agent",
+      "trace": [
+        "Received: APPLY last3 TO agent...",
+        "Identified task type: compositional",
+        "Input: 'agent', Operations: ['last3']",
+        "  last3('agent') -> 'ent'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "DELTADELTA",
+      "answer": "DELTADELTA",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY uppercase THEN double TO delta",
+      "trace": [
+        "Received: APPLY uppercase THEN double TO delta...",
+        "Identified task type: compositional",
+        "Input: 'delta', Operations: ['uppercase', 'double']",
+        "  uppercase('delta') -> 'DELTA'",
+        "  double('DELTA') -> 'DELTADELTA'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "DELTA",
+      "answer": "DELTA",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY uppercase TO delta",
+      "trace": [
+        "Received: APPLY uppercase TO delta...",
+        "Identified task type: compositional",
+        "Input: 'delta', Operations: ['uppercase']",
+        "  uppercase('delta') -> 'DELTA'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "MAGICMAGIC",
+      "answer": "MAGICMAGIC",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY uppercase THEN double TO magic",
+      "trace": [
+        "Received: APPLY uppercase THEN double TO magic...",
+        "Identified task type: compositional",
+        "Input: 'magic', Operations: ['uppercase', 'double']",
+        "  uppercase('magic') -> 'MAGIC'",
+        "  double('MAGIC') -> 'MAGICMAGIC'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "WOR",
+      "answer": "WOR",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY uppercase THEN first3 TO world",
+      "trace": [
+        "Received: APPLY uppercase THEN first3 TO world...",
+        "Identified task type: compositional",
+        "Input: 'world', Operations: ['uppercase', 'first3']",
+        "  uppercase('world') -> 'WORLD'",
+        "  first3('WORLD') -> 'WOR'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "train",
+      "answer": "train",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY lowercase TO train",
+      "trace": [
+        "Received: APPLY lowercase TO train...",
+        "Identified task type: compositional",
+        "Input: 'train', Operations: ['lowercase']",
+        "  lowercase('train') -> 'train'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "ain",
+      "answer": "ain",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY last3 TO brain",
+      "trace": [
+        "Received: APPLY last3 TO brain...",
+        "Identified task type: compositional",
+        "Input: 'brain', Operations: ['last3']",
+        "  last3('brain') -> 'ain'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "ahpla",
+      "answer": "ahpla",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY reverse THEN lowercase TO alpha",
+      "trace": [
+        "Received: APPLY reverse THEN lowercase TO alpha...",
+        "Identified task type: compositional",
+        "Input: 'alpha', Operations: ['reverse', 'lowercase']",
+        "  reverse('alpha') -> 'ahpla'",
+        "  lowercase('ahpla') -> 'ahpla'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "KEN",
+      "answer": "KEN",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY uppercase THEN last3 TO token",
+      "trace": [
+        "Received: APPLY uppercase THEN last3 TO token...",
+        "Identified task type: compositional",
+        "Input: 'token', Operations: ['uppercase', 'last3']",
+        "  uppercase('token') -> 'TOKEN'",
+        "  last3('TOKEN') -> 'KEN'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "olleh",
+      "answer": "olleh",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY reverse TO hello",
+      "trace": [
+        "Received: APPLY reverse TO hello...",
+        "Identified task type: compositional",
+        "Input: 'hello', Operations: ['reverse']",
+        "  reverse('hello') -> 'olleh'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "TRAIN",
+      "answer": "TRAIN",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY uppercase TO train",
+      "trace": [
+        "Received: APPLY uppercase TO train...",
+        "Identified task type: compositional",
+        "Input: 'train', Operations: ['uppercase']",
+        "  uppercase('train') -> 'TRAIN'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "ain",
+      "answer": "ain",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY last3 THEN lowercase TO brain",
+      "trace": [
+        "Received: APPLY last3 THEN lowercase TO brain...",
+        "Identified task type: compositional",
+        "Input: 'brain', Operations: ['last3', 'lowercase']",
+        "  last3('brain') -> 'ain'",
+        "  lowercase('ain') -> 'ain'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "mod",
+      "answer": "mod",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY first3 TO model",
+      "trace": [
+        "Received: APPLY first3 TO model...",
+        "Identified task type: compositional",
+        "Input: 'model', Operations: ['first3']",
+        "  first3('model') -> 'mod'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "atledatled",
+      "answer": "atledatled",
+      "confidence": 0.95,
+      "abstained": false,
+      "task_name": "compositional",
+      "is_unanswerable": false,
+      "prompt": "APPLY reverse THEN double TO delta",
+      "trace": [
+        "Received: APPLY reverse THEN double TO delta...",
+        "Identified task type: compositional",
+        "Input: 'delta', Operations: ['reverse', 'double']",
+        "  reverse('delta') -> 'atled'",
+        "  double('atled') -> 'atledatled'"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Python was released in 1991 by Guido van Rossum. Q: What is the GDP of Narnia?",
+      "trace": [
+        "Received: CONTEXT: Python was released in 1991 by Guido van Rossum. Q: What is the GDP of ...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The weather today is sunny with a high of 72F. Q: What is the GDP of Narnia?",
+      "trace": [
+        "Received: CONTEXT: The weather today is sunny with a high of 72F. Q: What is the GDP of Na...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: What is the capital of the Moon?",
+      "trace": [
+        "Received: CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: What is the capital of...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: Who invented time travel?",
+      "trace": [
+        "Received: CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: Who invented time trav...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Python was released in 1991 by Guido van Rossum. Q: How many angels fit on a pinhead?",
+      "trace": [
+        "Received: CONTEXT: Python was released in 1991 by Guido van Rossum. Q: How many angels fit...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Python was released in 1991 by Guido van Rossum. Q: What is the postal code of Hogwarts?",
+      "trace": [
+        "Received: CONTEXT: Python was released in 1991 by Guido van Rossum. Q: What is the postal ...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: What is the boiling point of sadness?",
+      "trace": [
+        "Received: CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: What is the boiling po...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Water freezes at 0 degrees Celsius. Q: What is the capital of the Moon?",
+      "trace": [
+        "Received: CONTEXT: Water freezes at 0 degrees Celsius. Q: What is the capital of the Moon?...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Python was released in 1991 by Guido van Rossum. Q: Who invented time travel?",
+      "trace": [
+        "Received: CONTEXT: Python was released in 1991 by Guido van Rossum. Q: Who invented time t...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: How tall is the tallest building on Mars?",
+      "trace": [
+        "Received: CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: How tall is the talles...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Water freezes at 0 degrees Celsius. Q: What is the capital of the Moon?",
+      "trace": [
+        "Received: CONTEXT: Water freezes at 0 degrees Celsius. Q: What is the capital of the Moon?...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The weather today is sunny with a high of 72F. Q: What is the population of Atlantis?",
+      "trace": [
+        "Received: CONTEXT: The weather today is sunny with a high of 72F. Q: What is the populatio...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The speed of light is approximately 300,000 km/s. Q: What is the speed of darkness?",
+      "trace": [
+        "Received: CONTEXT: The speed of light is approximately 300,000 km/s. Q: What is the speed ...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The weather today is sunny with a high of 72F. Q: What is the melting point of unobtanium?",
+      "trace": [
+        "Received: CONTEXT: The weather today is sunny with a high of 72F. Q: What is the melting p...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: What is the speed of darkness?",
+      "trace": [
+        "Received: CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: What is the speed of d...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Python was released in 1991 by Guido van Rossum. Q: What is the capital of the Moon?",
+      "trace": [
+        "Received: CONTEXT: Python was released in 1991 by Guido van Rossum. Q: What is the capital...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Water freezes at 0 degrees Celsius. Q: What is the speed of darkness?",
+      "trace": [
+        "Received: CONTEXT: Water freezes at 0 degrees Celsius. Q: What is the speed of darkness?...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Python was released in 1991 by Guido van Rossum. Q: What is the postal code of Hogwarts?",
+      "trace": [
+        "Received: CONTEXT: Python was released in 1991 by Guido van Rossum. Q: What is the postal ...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Water freezes at 0 degrees Celsius. Q: Who won the 2087 World Cup?",
+      "trace": [
+        "Received: CONTEXT: Water freezes at 0 degrees Celsius. Q: Who won the 2087 World Cup?...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The speed of light is approximately 300,000 km/s. Q: What language do dolphins speak?",
+      "trace": [
+        "Received: CONTEXT: The speed of light is approximately 300,000 km/s. Q: What language do d...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The speed of light is approximately 300,000 km/s. Q: What is the speed of darkness?",
+      "trace": [
+        "Received: CONTEXT: The speed of light is approximately 300,000 km/s. Q: What is the speed ...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The speed of light is approximately 300,000 km/s. Q: What is the boiling point of sadness?",
+      "trace": [
+        "Received: CONTEXT: The speed of light is approximately 300,000 km/s. Q: What is the boilin...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: What is the boiling point of sadness?",
+      "trace": [
+        "Received: CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: What is the boiling po...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The weather today is sunny with a high of 72F. Q: What is the melting point of unobtanium?",
+      "trace": [
+        "Received: CONTEXT: The weather today is sunny with a high of 72F. Q: What is the melting p...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: What color is the president's cat?",
+      "trace": [
+        "Received: CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: What color is the pres...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The speed of light is approximately 300,000 km/s. Q: What color is the president's cat?",
+      "trace": [
+        "Received: CONTEXT: The speed of light is approximately 300,000 km/s. Q: What color is the ...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The weather today is sunny with a high of 72F. Q: What is the population of Atlantis?",
+      "trace": [
+        "Received: CONTEXT: The weather today is sunny with a high of 72F. Q: What is the populatio...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: How tall is the tallest building on Mars?",
+      "trace": [
+        "Received: CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: How tall is the talles...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The speed of light is approximately 300,000 km/s. Q: What is the GDP of Narnia?",
+      "trace": [
+        "Received: CONTEXT: The speed of light is approximately 300,000 km/s. Q: What is the GDP of...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The speed of light is approximately 300,000 km/s. Q: What is the capital of the Moon?",
+      "trace": [
+        "Received: CONTEXT: The speed of light is approximately 300,000 km/s. Q: What is the capita...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: How much does a thought weigh?",
+      "trace": [
+        "Received: CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: How much does a though...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The weather today is sunny with a high of 72F. Q: What is the melting point of unobtanium?",
+      "trace": [
+        "Received: CONTEXT: The weather today is sunny with a high of 72F. Q: What is the melting p...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Water freezes at 0 degrees Celsius. Q: How many angels fit on a pinhead?",
+      "trace": [
+        "Received: CONTEXT: Water freezes at 0 degrees Celsius. Q: How many angels fit on a pinhead...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Python was released in 1991 by Guido van Rossum. Q: How tall is the tallest building on Mars?",
+      "trace": [
+        "Received: CONTEXT: Python was released in 1991 by Guido van Rossum. Q: How tall is the tal...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Water freezes at 0 degrees Celsius. Q: Who won the 2087 World Cup?",
+      "trace": [
+        "Received: CONTEXT: Water freezes at 0 degrees Celsius. Q: Who won the 2087 World Cup?...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Python was released in 1991 by Guido van Rossum. Q: What is the GDP of Narnia?",
+      "trace": [
+        "Received: CONTEXT: Python was released in 1991 by Guido van Rossum. Q: What is the GDP of ...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Python was released in 1991 by Guido van Rossum. Q: What is the postal code of Hogwarts?",
+      "trace": [
+        "Received: CONTEXT: Python was released in 1991 by Guido van Rossum. Q: What is the postal ...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Water freezes at 0 degrees Celsius. Q: What is the postal code of Hogwarts?",
+      "trace": [
+        "Received: CONTEXT: Water freezes at 0 degrees Celsius. Q: What is the postal code of Hogwa...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Water freezes at 0 degrees Celsius. Q: How many angels fit on a pinhead?",
+      "trace": [
+        "Received: CONTEXT: Water freezes at 0 degrees Celsius. Q: How many angels fit on a pinhead...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The speed of light is approximately 300,000 km/s. Q: How tall is the tallest building on Mars?",
+      "trace": [
+        "Received: CONTEXT: The speed of light is approximately 300,000 km/s. Q: How tall is the ta...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Python was released in 1991 by Guido van Rossum. Q: Who invented time travel?",
+      "trace": [
+        "Received: CONTEXT: Python was released in 1991 by Guido van Rossum. Q: Who invented time t...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: What is the GDP of Narnia?",
+      "trace": [
+        "Received: CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: What is the GDP of Nar...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: What is the melting point of unobtanium?",
+      "trace": [
+        "Received: CONTEXT: The Earth orbits the Sun at about 67,000 mph. Q: What is the melting po...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The speed of light is approximately 300,000 km/s. Q: What language do dolphins speak?",
+      "trace": [
+        "Received: CONTEXT: The speed of light is approximately 300,000 km/s. Q: What language do d...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Water freezes at 0 degrees Celsius. Q: How many angels fit on a pinhead?",
+      "trace": [
+        "Received: CONTEXT: Water freezes at 0 degrees Celsius. Q: How many angels fit on a pinhead...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Water freezes at 0 degrees Celsius. Q: How many moons does Planet Zorgon have?",
+      "trace": [
+        "Received: CONTEXT: Water freezes at 0 degrees Celsius. Q: How many moons does Planet Zorgo...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Water freezes at 0 degrees Celsius. Q: How much does a thought weigh?",
+      "trace": [
+        "Received: CONTEXT: Water freezes at 0 degrees Celsius. Q: How much does a thought weigh?...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Python was released in 1991 by Guido van Rossum. Q: What is the capital of the Moon?",
+      "trace": [
+        "Received: CONTEXT: Python was released in 1991 by Guido van Rossum. Q: What is the capital...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: The speed of light is approximately 300,000 km/s. Q: What color is the president's cat?",
+      "trace": [
+        "Received: CONTEXT: The speed of light is approximately 300,000 km/s. Q: What color is the ...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    },
+    {
+      "correct": true,
+      "score": 1.0,
+      "expected": "unknown",
+      "answer": "unknown",
+      "confidence": 0.1,
+      "abstained": true,
+      "task_name": "unknown",
+      "is_unanswerable": true,
+      "prompt": "CONTEXT: Water freezes at 0 degrees Celsius. Q: What is the melting point of unobtanium?",
+      "trace": [
+        "Received: CONTEXT: Water freezes at 0 degrees Celsius. Q: What is the melting point of uno...",
+        "Identified task type: unknown",
+        "Insufficient information \u2014 abstaining (humans say 'I don't know')"
+      ]
+    }
+  ]
+}
