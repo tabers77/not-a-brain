@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>not-a-brain Dashboard</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent: #58a6ff;
+            --green: #3fb950;
+            --red: #f85149;
+            --orange: #d29922;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .card h3 {
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem;
+            color: var(--text);
+        }
+        .plot {
+            text-align: center;
+            margin: 1rem 0;
+        }
+        .plot img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        th, td {
+            padding: 0.6rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+        .score-high { color: var(--green); font-weight: 600; }
+        .score-mid { color: var(--orange); font-weight: 600; }
+        .score-low { color: var(--red); font-weight: 600; }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+        .tag {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .tag-chapter { background: #1f6feb33; color: var(--accent); }
+        .tag-human { background: #3fb95033; color: var(--green); }
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>not-a-brain</h1>
+        <p class="subtitle">LLMs from Scratch: Evolution, Behaviors, and Why They're Not Brains</p>
+
+        <!-- Summary Metrics -->
+        <div class="card">
+            <h2>Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Chapter</th>
+                        <th>Agent</th>
+                        <th>Accuracy</th>
+                        <th>Hallucination Rate</th>
+                        <th>Abstention Rate</th>
+                        <th>Calibration Error</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in summary_table %}
+                    <tr>
+                        <td><span class="tag tag-chapter">{{ row.chapter }}</span></td>
+                        <td>
+                            {% if row.agent == "human_agent" %}
+                                <span class="tag tag-human">{{ row.agent }}</span>
+                            {% else %}
+                                {{ row.agent }}
+                            {% endif %}
+                        </td>
+                        <td class="{{ 'score-high' if row.accuracy >= 0.8 else 'score-mid' if row.accuracy >= 0.5 else 'score-low' }}">
+                            {{ "%.1f" | format(row.accuracy * 100) }}%
+                        </td>
+                        <td class="{{ 'score-low' if row.hallucination_rate > 0.5 else 'score-mid' if row.hallucination_rate > 0.2 else 'score-high' }}">
+                            {{ "%.1f" | format(row.hallucination_rate * 100) }}%
+                        </td>
+                        <td>{{ "%.1f" | format(row.abstention_rate * 100) }}%</td>
+                        <td>{{ "%.3f" | format(row.calibration_error) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Evolution Curve -->
+        {% if evolution_plot %}
+        <div class="card">
+            <h2>Capability Evolution</h2>
+            <p>How task accuracy improves as model architecture evolves across chapters.</p>
+            <div class="plot">
+                <img src="data:image/png;base64,{{ evolution_plot }}" alt="Evolution curve">
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="grid-2">
+            <!-- Hallucination -->
+            {% if hallucination_plot %}
+            <div class="card">
+                <h2>Hallucination Rate</h2>
+                <div class="plot">
+                    <img src="data:image/png;base64,{{ hallucination_plot }}" alt="Hallucination rates">
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Calibration -->
+            {% if calibration_plot %}
+            <div class="card">
+                <h2>Calibration</h2>
+                <div class="plot">
+                    <img src="data:image/png;base64,{{ calibration_plot }}" alt="Calibration plot">
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Cognitive Ingredients -->
+        {% if cognitive_heatmap %}
+        <div class="card">
+            <h2>Cognitive Ingredients Comparison</h2>
+            <p>What each chapter's model has vs. what the human agent has — scored across 6 cognitive dimensions.</p>
+            <div class="plot">
+                <img src="data:image/png;base64,{{ cognitive_heatmap }}" alt="Cognitive ingredients heatmap">
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Agent Radar -->
+        {% if radar_plot %}
+        <div class="card">
+            <h2>Agent Comparison</h2>
+            <div class="plot">
+                <img src="data:image/png;base64,{{ radar_plot }}" alt="Agent radar comparison">
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Per-Chapter Details -->
+        {% for chapter in chapter_details %}
+        <div class="card">
+            <h2><span class="tag tag-chapter">{{ chapter.name }}</span> {{ chapter.title }}</h2>
+            {% if chapter.description %}
+            <p>{{ chapter.description }}</p>
+            {% endif %}
+            {% if chapter.per_task %}
+            <h3>Per-Task Breakdown</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Agent</th>
+                        <th>Accuracy</th>
+                        <th>Samples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task in chapter.per_task %}
+                    <tr>
+                        <td>{{ task.task_name }}</td>
+                        <td>{{ task.agent }}</td>
+                        <td class="{{ 'score-high' if task.accuracy >= 0.8 else 'score-mid' if task.accuracy >= 0.5 else 'score-low' }}">
+                            {{ "%.1f" | format(task.accuracy * 100) }}%
+                        </td>
+                        <td>{{ task.n_samples }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <footer>
+            Generated by <strong>not-a-brain</strong> dashboard &mdash;
+            "Similar outputs &ne; same mechanism"
+        </footer>
+    </div>
+</body>
+</html>
