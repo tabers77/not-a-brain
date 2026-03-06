@@ -16,9 +16,22 @@ $$
 P(c_t \mid c_{t-1}) = \frac{\text{count}(c_{t-1}, c_t)}{\text{count}(c_{t-1})}
 $$
 
-**Example**: If we train on `"ADD 5 3 =8"`, the bigram model learns:
-- After `=`, the character `8` appeared → P(`8` | `=`) = count(`=`, `8`) / count(`=`)
-- After `A`, `D` appeared → P(`D` | `A`) = count(`A`, `D`) / count(`A`)
+**Worked example with a real training sentence**: Suppose our training corpus contains these three sequences:
+
+```
+"ADD 5 3 =8"
+"ADD 2 7 =9"
+"ADD 1 4 =5"
+```
+
+The bigram model counts every pair of consecutive characters. For the character `=`:
+- `=` is followed by `8` once, `9` once, `5` once
+- count(`=`) = 3 total
+- P(`8` | `=`) = 1/3, P(`9` | `=`) = 1/3, P(`5` | `=`) = 1/3
+
+Now when we prompt with `"ADD 6 2 ="`, the model looks at **only the `=`** and picks one of {8, 9, 5} — it has no idea the answer should be 8, because it never looks at the `6` and `2`.
+
+Similarly, after `A`: `A` is always followed by `D` in these examples, so P(`D`|`A`) = 1.0. The model "knows" `A→D` but only because it memorized a pattern, not because it understands anything.
 
 **Generation**: Start with a prompt, then repeatedly pick the most likely next character:
 
@@ -39,7 +52,12 @@ $$
 P(c_t \mid c_{t-2}, c_{t-1}) = \frac{\text{count}(c_{t-2}, c_{t-1}, c_t)}{\text{count}(c_{t-2}, c_{t-1})}
 $$
 
-This captures slightly longer patterns (e.g., `"= "` after a number), but still can't handle dependencies that span the full prompt.
+**Worked example**: Given the same three training sentences, the trigram counts pairs of two characters:
+- The pair `" ="` (space then equals) is followed by `8`, `9`, `5` — same problem, still random.
+- But the pair `"=8"` at the end is always followed by EOS (end of sequence) — so the trigram learns to stop after one digit.
+- The pair `"D "` (D then space) is always followed by a digit — the trigram learns "after `D `, expect a number."
+
+Two characters of context helps with local patterns (like "stop after the answer digit"), but `" ="` still doesn't know which digit to produce — the operands are 6+ characters back, far outside the 2-character window.
 
 ### Fallback (Backoff)
 
@@ -52,6 +70,8 @@ P(c_t \mid c_{t-2}, c_{t-1}) =
 P(c_t \mid c_{t-1}) & \text{otherwise (bigram fallback)}
 \end{cases}
 $$
+
+**Worked example**: Suppose we encounter the context `"x="` at generation time, but our training data never had `x` before `=`. The trigram has no counts for the pair `(x, =)`, so it falls back: instead of P(next | `x`, `=`), it uses P(next | `=`) from the bigram. This prevents the model from getting completely stuck on unseen contexts, but the fallback knows even less about what should come next.
 
 ## Step-by-Step: What Happens During Training
 
@@ -69,13 +89,26 @@ $$
 
 ## Step-by-Step: What Happens During Generation
 
-Given a prompt like `"ADD 5 3 ="`:
+Let's trace the bigram generating from the prompt `"COPY: hi|"`:
 
-1. Encode the prompt as character IDs
-2. Look up the last character (or last two for trigram) in the count table
-3. Pick the character with the highest count
-4. Append it to the sequence
-5. Repeat until EOS or max length
+```
+Step 0: Prompt = "COPY: hi|"
+        Model looks at last char: "|"
+        In training, "|" was followed by many different chars (a, b, c, h, x...)
+        Picks most frequent: say "a"       →  "COPY: hi|a"
+
+Step 1: Last char = "a"
+        In training, "a" was often followed by "b", "l", "n"...
+        Picks most frequent: say "l"       →  "COPY: hi|al"
+
+Step 2: Last char = "l"
+        Picks: "i"                         →  "COPY: hi|ali"
+        ...and so on, drifting away from "hi" (the correct answer)
+```
+
+The model generated `"ali..."` instead of `"hi"` because it never looks back at what came before `"|"`. Each step only sees the single previous character — the prompt content is invisible.
+
+For the trigram, replace "last char" with "last two chars." It would see `"|a"` at step 1 instead of just `"a"`, which helps slightly but still can't reach back to `"hi"`.
 
 ## Why N-grams Fail on Our Tasks
 
@@ -111,6 +144,14 @@ Run `python chapters/01_ngrams/run.py` and notice:
 3. **100% hallucination** for both — they always generate something, even for unanswerable questions
 4. **0% abstention** — n-grams have no concept of "I don't know"
 5. Look at the **sample generations** — they drift into repetitive patterns quickly
+
+### Generated Plot
+
+After running, check `results/ch01_comparison.png`:
+
+![Comparison bar chart](results/ch01_comparison.png)
+
+This chart shows accuracy per task for bigram, trigram, and human agent. The n-gram bars are nearly flat at zero across all tasks, with the trigram showing a small bump on grammar (it can guess common bracket patterns by chance). The human agent towers at 100% on every task. The massive gap visualizes what's missing: understanding, memory, and reasoning — none of which counting co-occurrences can provide.
 
 ## What's Next
 
