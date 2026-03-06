@@ -274,15 +274,18 @@ The 6 cognitive ingredients scored per chapter:
 
 ---
 
-**>>> NEXT STEP: Step 10 <<<**
-
-#### Step 10: Chapter 03 — RNN/GRU
+#### Step 10: Chapter 03 — RNN/GRU — DONE
 - **What**: Recurrent models. "State" creates illusion of memory.
-- **Implements**: `RNNLM`, `GRULM` in `src/not_a_brain/models/rnn_lm.py`
-- **Chapter**: `chapters/03_rnn_gru/chapter.md` + `chapters/03_rnn_gru/run.py`
-- **Experiments**: better on longer sequences than MLP, training is brittle, long-range still degrades
+- **Implements**: `RNNLM`, `GRULM`, `RNNAgent` in `src/not_a_brain/models/rnn_lm.py`
+- **Chapter**: `chapters/03_rnn_gru/chapter.md` (LaTeX for RNN/GRU equations, vanishing gradient, gates) + `chapters/03_rnn_gru/run.py`
+- **Test**: `pytest tests/test_rnn_lm.py` — 13 tests passing (shape, training, generation, GRU>RNN params, agent)
+- **Results**: RNN 6.3% (11,647 params), GRU 6.0% (22,143 params), Human 100%. Grammar 32-38%, rest near 0%. GRU lower training loss (0.41 vs 0.53).
 - **Human lens**: "Human working memory is structured; RNN state is compressed soup"
-- **Constraint**: sequences < 50 tokens, model < 100k params (CPU-friendly)
+- **Constraint**: sequences < 50 tokens, models < 100k params
+
+---
+
+**>>> NEXT STEP: Step 11 <<<**
 
 #### Step 11: Chapter 04 — Attention
 - **What**: Scaled dot-product attention in isolation. Then multi-head.
@@ -364,7 +367,7 @@ Generated via `python -m not_a_brain.dashboard.generate`, the HTML report includ
 
 ## Verification Plan
 
-1. `pytest tests/` — all unit tests pass (currently 76 passing)
+1. `pytest tests/` — all unit tests pass (currently 89 passing)
 2. `python -m not_a_brain.dashboard.generate` — produces valid HTML with all chapters
 3. Each `chapters/XX/run.py` completes in < 5 minutes on CPU
 4. Each `chapters/XX/chapter.md` has LaTeX formulas, step-by-step logic, and human lens
