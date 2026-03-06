@@ -153,11 +153,15 @@ Every chapter follows this exact structure:
 
 ```
 chapters/XX_name/
-  README.md           # Goal, what you'll build, what to observe, human lens
-  notebook.ipynb      # Interactive walkthrough with outputs + plots
-  run.py              # Script version (same logic, CLI-friendly)
+  chapter.md          # Theory, formulas (LaTeX), step-by-step logic, human lens, what to observe
+  run.py              # Runnable script: trains, evaluates, prints results, saves plots
   results/            # Generated after running (metrics JSON, plots)
 ```
+
+Design decisions:
+- **No notebooks** — scripts are simpler, version-control friendly, and always show output when run
+- **chapter.md** contains all the educational content: math formulas, step-by-step explanations, and the "human lens" comparison
+- **run.py** prints step-by-step explanations alongside results so the output is self-documenting
 
 ---
 
@@ -214,85 +218,80 @@ The 6 cognitive ingredients scored per chapter:
 
 ### Phase 1: Foundation (Chapters 00-05)
 
-#### Step 0: Project skeleton + shared infrastructure
+#### Step 0: Project skeleton + shared infrastructure — DONE
 - **What**: Create repo structure, package setup, shared modules
 - **Files**: `pyproject.toml`, `requirements.txt`, `src/not_a_brain/__init__.py`, all `__init__.py` files
 - **Test**: `python -c "import not_a_brain; print('OK')"` + `pytest tests/`
-- **Rollback**: Delete repo, start over
 
-#### Step 1: Task API + Synthetic Data Generators
+#### Step 1: Task API + Synthetic Data Generators — DONE
 - **What**: Implement the shared task interface and all synthetic data generators
-- **Files**: `src/not_a_brain/tasks/`
-- **Test**: `pytest tests/test_tasks.py` — each generator produces valid pairs, grading works
+- **Files**: `src/not_a_brain/tasks/base.py`, `src/not_a_brain/tasks/synthetic/` (arithmetic, copy, grammar, knowledge_qa, compositional, unknown)
+- **Test**: `pytest tests/test_tasks.py` — 18 tests passing
 
-#### Step 2: Tokenizer
-- **What**: Character-level tokenizer + optional simple BPE
+#### Step 2: Tokenizer — DONE
+- **What**: Character-level tokenizer + simple BPE
 - **Files**: `src/not_a_brain/models/tokenizer.py`
-- **Test**: roundtrip encode/decode on all task outputs
+- **Test**: `pytest tests/test_models.py` — 9 tests passing (roundtrip, special tokens, batch encode, BPE merges)
 
-#### Step 3: Shared training utilities
-- **What**: Reusable training loop + logging + visualization helpers
-- **Files**: `src/not_a_brain/utils/training.py`, `visualization.py`
-- **Key design**: `train(model, dataset, epochs, lr) -> TrainResult(losses, model)`
-- **Test**: train a 1-layer model for 10 steps, verify loss decreases
+#### Step 3: Shared training utilities — DONE
+- **What**: Reusable training loop + generation + visualization helpers
+- **Files**: `src/not_a_brain/utils/training.py` (train loop, autoregressive generate), `src/not_a_brain/utils/visualization.py` (loss curves, attention heatmaps, comparison bars, evolution curves)
 
-#### Step 4: Eval harness + metrics
+#### Step 4: Eval harness + metrics — DONE
 - **What**: Run any agent on any task suite, collect standardized metrics
-- **Files**: `src/not_a_brain/evals/`
-- **Metrics**: accuracy, calibration, abstention rate, hallucination rate, memory retention
-- **Test**: mock agent, verify metrics computation
+- **Files**: `src/not_a_brain/evals/harness.py` (AgentInterface, RandomAgent, evaluate, run_eval_suite, save/load results), `src/not_a_brain/evals/metrics.py` (accuracy, abstention, hallucination, calibration ECE)
+- **Test**: `pytest tests/test_evals.py` — 9 tests passing
 
-#### Step 5: Human cognitive agent (v1)
-- **What**: Toy agent with working memory, long-term memory, uncertainty threshold, planning loop, grounding channel
-- **Files**: `src/not_a_brain/human_agent/`
-- **Test**: human-agent solves arithmetic, copies, abstains on unknowns
+#### Step 5: Human cognitive agent (v1) — DONE
+- **What**: Toy agent with working memory (7 slots), long-term memory, uncertainty threshold, planning loop, grounding channel
+- **Files**: `src/not_a_brain/human_agent/` (agent.py, memory.py, planner.py, grounding.py)
+- **Test**: `pytest tests/test_human_agent.py` — 22 tests passing (solves all task types, abstains on unknowns, persistent memory)
 
-#### Step 6: Dashboard skeleton
-- **What**: `python -m not_a_brain.dashboard.generate` reads results JSON, produces HTML report with matplotlib plots
-- **Files**: `src/not_a_brain/dashboard/`
-- **Visuals**: accuracy table across chapters, calibration plots, hallucination rate bar chart, memory retention line chart, cognitive ingredients heatmap
-- **Test**: generate dashboard with dummy data, verify HTML is valid
+#### Step 6: Dashboard skeleton — DONE
+- **What**: HTML report generator with matplotlib plots (evolution curves, hallucination bars, cognitive heatmap, calibration, radar)
+- **Files**: `src/not_a_brain/dashboard/` (generate.py, plots.py, template.html)
 
-#### Step 7: Chapter 00 — Setup & Metrics
-- **What**: Introductory notebook + script. Installs deps, runs all tasks, explains eval framework, shows dashboard
-- **Files**: `chapters/00_setup_and_metrics/`
-- **Notebook sections**: install, task demo, metric definitions, baseline (random agent), human-agent demo
-- **Test**: notebook runs end-to-end
+#### Step 7: Chapter 00 — Setup & Metrics — DONE
+- **What**: `chapter.md` with metric definitions (LaTeX formulas for accuracy, abstention, hallucination, ECE) + `run.py` that runs random agent and human agent baselines
+- **Files**: `chapters/00_setup_and_metrics/chapter.md`, `chapters/00_setup_and_metrics/run.py`
+- **Results**: Random agent 2.7% accuracy, Human agent 100% accuracy. Gap = 97.3%
 
-#### Step 8: Chapter 01 — N-grams
-- **What**: Bigram/trigram models. Count-based. Local pattern completion works, long-range fails.
-- **Files**: `chapters/01_ngrams/`
-- **Implements**: `BigramModel`, `TrigramModel` (pure counting, no neural net)
-- **Experiments**:
-  - Train on copy task -> works for short sequences
-  - Train on arithmetic -> fails completely
-  - Train on grammar -> poor
-  - Compare human-agent on same tasks
-- **Human lens**: "Humans don't count co-occurrences — they understand meaning"
-- **Test**: bigram on copy task accuracy > 0 but < human-agent
+#### Step 8: Chapter 01 — N-grams — DONE
+- **What**: Bigram/trigram models (pure counting, no neural net) + NgramAgent wrapper for eval harness
+- **Files**: `src/not_a_brain/models/ngram.py`, `chapters/01_ngrams/chapter.md` (LaTeX formulas for bigram/trigram probabilities, backoff), `chapters/01_ngrams/run.py`
+- **Test**: `pytest tests/test_ngram.py` — 7 tests passing
+- **Results**: Bigram 0%, Trigram ~14%, Human 100%. Both n-grams hallucinate 100% on unknowns.
+
+---
+
+**>>> NEXT STEP: Step 9 <<<**
 
 #### Step 9: Chapter 02 — Feed-Forward LM (MLP)
-- **What**: Fixed-window MLP language model. First neural model.
-- **Implements**: `FFNLM(context_window, vocab_size, d_hidden)`
+- **What**: Fixed-window MLP language model. First neural model. First use of the shared training loop.
+- **Implements**: `FFNLM(context_window, vocab_size, d_hidden)` in `src/not_a_brain/models/ffn_lm.py`
+- **Chapter**: `chapters/02_ffn_lm/chapter.md` (formulas for embedding, linear layers, softmax, cross-entropy loss) + `chapters/02_ffn_lm/run.py`
 - **Experiments**: same task suite, improvement over n-grams on short patterns, still fails on variable-length
 - **Human lens**: "Humans generalize rules; MLPs memorize windows"
 
 #### Step 10: Chapter 03 — RNN/GRU
 - **What**: Recurrent models. "State" creates illusion of memory.
-- **Implements**: `RNNLM`, `GRULM`
+- **Implements**: `RNNLM`, `GRULM` in `src/not_a_brain/models/rnn_lm.py`
+- **Chapter**: `chapters/03_rnn_gru/chapter.md` + `chapters/03_rnn_gru/run.py`
 - **Experiments**: better on longer sequences than MLP, training is brittle, long-range still degrades
 - **Human lens**: "Human working memory is structured; RNN state is compressed soup"
 - **Constraint**: sequences < 50 tokens, model < 100k params (CPU-friendly)
 
 #### Step 11: Chapter 04 — Attention
 - **What**: Scaled dot-product attention in isolation. Then multi-head.
-- **Implements**: `SingleHeadAttention`, `MultiHeadAttention`
+- **Implements**: `SingleHeadAttention`, `MultiHeadAttention` in `src/not_a_brain/models/layers.py`
+- **Chapter**: `chapters/04_attention/chapter.md` + `chapters/04_attention/run.py`
 - **Experiments**: copy task, retrieve-last-seen task, attention heatmaps
 - **Human lens**: "Humans attend guided by goals; attention is content-based similarity"
 
 #### Step 12: Chapter 05 — Transformer (Tiny GPT)
 - **What**: Full tiny GPT. 2-4 layers. Core model for all subsequent chapters.
-- **Implements**: assembles `tiny_gpt.py` from layers built in ch04
+- **Implements**: assembles `src/not_a_brain/models/tiny_gpt.py` from layers built in ch04
+- **Chapter**: `chapters/05_transformer/chapter.md` + `chapters/05_transformer/run.py`
 - **Experiments**: train on all tasks, significant jump over RNN, attention heatmaps per layer, loss curves
 - **Dashboard milestone**: first full dashboard run across ch01-05 showing evolution curve
 - **Human lens**: "Depth + attention = powerful pattern matching. Still not reasoning."
@@ -303,22 +302,22 @@ The 6 cognitive ingredients scored per chapter:
 
 #### Step 13: Chapter 06 — Scaling Laws (Toy)
 - **What**: Train 3-5 model sizes on same data, plot loss vs params/data/compute
-- **Experiments**: reproduce miniature scaling laws, show predictability
+- **Chapter**: `chapters/06_scaling_laws_toy/chapter.md` + `run.py`
 - **Human lens**: "Humans don't scale by parameter count"
 
 #### Step 14: Chapter 07 — Instruction Tuning (Toy SFT)
 - **What**: Fine-tune tiny GPT on instruction-formatted data
-- **Experiments**: before/after SFT — format compliance improves, "helpfulness" improves
+- **Chapter**: `chapters/07_instruction_tuning_toy/chapter.md` + `run.py`
 - **Human lens**: "Humans follow instructions via shared intent, not format fine-tuning"
 
 #### Step 15: Chapter 08 — Preference / RLHF (Toy)
 - **What**: Tiny reward model + simple DPO (simpler than PPO)
-- **Experiments**: policy shift (more polite, more refusal), helpfulness/harmlessness tradeoff
+- **Chapter**: `chapters/08_preference_and_rlhf_toy/chapter.md` + `run.py`
 - **Human lens**: "Human values are grounded; RLHF is statistical preference matching"
 
 #### Step 16: Chapter 09 — Decoding & Hallucination
 - **What**: All decoding strategies, "unknown" prompts, hallucination measurement
-- **Experiments**: greedy vs temp vs top-p on ambiguous prompts, calibration plots, confidence vs correctness
+- **Chapter**: `chapters/09_decoding_and_hallucination/chapter.md` + `run.py`
 - **Human lens**: "Humans say 'I don't know'; LLMs generate plausible text"
 
 ---
@@ -327,17 +326,17 @@ The 6 cognitive ingredients scored per chapter:
 
 #### Step 17: Chapter 10 — RAG Minimal
 - **What**: BM25 retrieval over mini knowledge base, prepend to context
-- **Experiments**: factual accuracy jump, retrieval-induced hallucination when retrieval is wrong
+- **Chapter**: `chapters/10_rag_minimal/chapter.md` + `run.py`
 - **Human lens**: "Humans seek evidence and reconcile contradictions"
 
 #### Step 18: Chapter 11 — Tools & Function Calling
 - **What**: Give tiny GPT a calculator and lookup tool via simple interface
-- **Experiments**: arithmetic accuracy with/without calculator, grounding via tool output
+- **Chapter**: `chapters/11_tools_and_function_calls/chapter.md` + `run.py`
 - **Human lens**: "Humans naturally use tools; LLMs need explicit interfaces"
 
 #### Step 19: Chapter 12 — Reasoning Scaffolds
 - **What**: Self-consistency, verifier loop, tree search (tiny ToT)
-- **Experiments**: baseline vs each scaffold, improvement + failure modes
+- **Chapter**: `chapters/12_reasoning_scaffolds/chapter.md` + `run.py`
 - **Human lens**: "Humans also search and verify, but with richer world models"
 
 #### Step 20: Final dashboard + docs
@@ -362,10 +361,10 @@ Generated via `python -m not_a_brain.dashboard.generate`, the HTML report includ
 
 ## Verification Plan
 
-1. `pytest tests/` — all unit tests pass
+1. `pytest tests/` — all unit tests pass (currently 68 passing)
 2. `python -m not_a_brain.dashboard.generate` — produces valid HTML with all chapters
 3. Each `chapters/XX/run.py` completes in < 5 minutes on CPU
-4. Each `chapters/XX/notebook.ipynb` runs end-to-end without errors
+4. Each `chapters/XX/chapter.md` has LaTeX formulas, step-by-step logic, and human lens
 5. Dashboard shows clear capability progression across chapters
 
 ---
@@ -378,4 +377,4 @@ Generated via `python -m not_a_brain.dashboard.generate`, the HTML report includ
 | RLHF toy chapter too complex | Use DPO (simpler than PPO), or reduce to reward-weighted SFT |
 | Human-agent feels fake/strawman | Be explicit in docs that it's didactic, not neuroscience. Focus on structural differences |
 | Chapters take too long to build | Phase 1 (ch00-05) is priority and standalone-publishable |
-| Scope creep per chapter | Strict template: 1 notebook, 1 script, 1 README, bounded experiments |
+| Scope creep per chapter | Strict template: 1 chapter.md, 1 run.py, bounded experiments |

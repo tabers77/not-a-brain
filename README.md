@@ -57,7 +57,7 @@ not-a-brain/
     evals/           # Eval harness + metrics (accuracy, calibration, hallucination rate)
     dashboard/       # HTML report generation with matplotlib plots
     utils/           # Training loop, visualization helpers
-  chapters/          # 00-12, each with notebook + script + results
+  chapters/          # 00-12, each with chapter.md (theory) + run.py (code) + results/
   documentation/     # Implementation details
   tests/             # Unit + behavioral tests
 ```
@@ -76,7 +76,10 @@ pip install -e ".[dev]"
 pytest
 
 # Start with Chapter 00
-jupyter notebook chapters/00_setup_and_metrics/notebook.ipynb
+python chapters/00_setup_and_metrics/run.py
+
+# Read the theory
+# Open chapters/00_setup_and_metrics/chapter.md
 ```
 
 ### Requirements

@@ -39,6 +39,13 @@ def main():
     print("=" * 60)
     print("Chapter 01: N-gram Language Models")
     print("=" * 60)
+    print()
+    print("N-grams predict the next character by counting co-occurrences:")
+    print("  Bigram:  P(next | prev)        = count(prev, next) / count(prev)")
+    print("  Trigram: P(next | prev2, prev1) = count(prev2, prev1, next) / count(prev2, prev1)")
+    print()
+    print("No neural network, no gradients — just counting.")
+    print("See chapter.md for full formulas and explanations.")
 
     # 1. Build task suite
     tasks = {
@@ -70,19 +77,29 @@ def main():
     trigram = TrigramModel(tokenizer)
     trigram.train(corpus)
 
-    # 6. Show some generations
-    print("\n--- Sample Generations ---")
+    # 6. Show some generations with explanations
+    print("\n" + "-" * 50)
+    print("Sample Generations")
+    print("-" * 50)
+    print("Watch how each model generates. The bigram only looks")
+    print("1 character back, so it drifts quickly. The trigram")
+    print("has 2 characters of context — slightly better but")
+    print("still can't understand the task.")
+    print()
+
     sample_prompts = [
-        "ADD 5 3 =",
-        "COPY: abc|",
-        "CHECK: ( )",
+        ("ADD 5 3 =", "Needs to compute 5+3=8. The model only sees '='"),
+        ("COPY: abc|", "Needs to reproduce 'abc'. The model only sees '|'"),
+        ("CHECK: ( )", "Needs to check bracket validity. Local patterns may help"),
     ]
-    for prompt in sample_prompts:
+    for prompt, explanation in sample_prompts:
         bi_out = bigram.generate(prompt, max_len=20)
         tri_out = trigram.generate(prompt, max_len=20)
         print(f"  Prompt: '{prompt}'")
+        print(f"  Why it's hard: {explanation}")
         print(f"    Bigram:  '{bi_out}'")
         print(f"    Trigram: '{tri_out}'")
+        print()
 
     # 7. Evaluate all agents
     # Re-create tasks with different seed for eval (no data leakage)
@@ -99,7 +116,13 @@ def main():
     trigram_agent = NgramAgent(trigram, "trigram")
     human = HumanAgent()
 
-    print("\n--- Evaluation ---")
+    print("-" * 50)
+    print("Evaluation")
+    print("-" * 50)
+    print("Running each agent on 50 samples per task (different")
+    print("seed than training to prevent data leakage).")
+    print()
+
     agents = {
         "bigram": bigram_agent,
         "trigram": trigram_agent,
@@ -110,10 +133,14 @@ def main():
     for agent_name, agent in agents.items():
         metrics, results = run_eval_suite(agent, eval_tasks, n_per_task=N_EVAL)
         all_metrics[agent_name] = metrics
-        print(f"\n{agent_name}:")
-        print(f"  Accuracy:          {metrics.accuracy:.1%}")
-        print(f"  Hallucination rate:{metrics.hallucination_rate:.1%}")
-        print(f"  Abstention rate:   {metrics.abstention_rate:.1%}")
+        print(f"  {agent_name}:")
+        print(f"    Accuracy:           {metrics.accuracy:.1%}")
+        print(f"    Hallucination rate: {metrics.hallucination_rate:.1%}")
+        print(f"    Abstention rate:    {metrics.abstention_rate:.1%}")
+        print(f"    Per-task:")
+        for t, info in metrics.per_task.items():
+            print(f"      {t:20s} {info['accuracy']:.1%}")
+        print()
 
         # Save results
         RESULTS_DIR.mkdir(parents=True, exist_ok=True)
