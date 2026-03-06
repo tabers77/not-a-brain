@@ -264,14 +264,17 @@ The 6 cognitive ingredients scored per chapter:
 
 ---
 
-**>>> NEXT STEP: Step 9 <<<**
-
-#### Step 9: Chapter 02 — Feed-Forward LM (MLP)
+#### Step 9: Chapter 02 — Feed-Forward LM (MLP) — DONE
 - **What**: Fixed-window MLP language model. First neural model. First use of the shared training loop.
 - **Implements**: `FFNLM(context_window, vocab_size, d_hidden)` in `src/not_a_brain/models/ffn_lm.py`
 - **Chapter**: `chapters/02_ffn_lm/chapter.md` (formulas for embedding, linear layers, softmax, cross-entropy loss) + `chapters/02_ffn_lm/run.py`
-- **Experiments**: same task suite, improvement over n-grams on short patterns, still fails on variable-length
+- **Test**: `pytest tests/test_ffn_lm.py` — 8 tests passing (output shape, batch forward, param count, training loss, generation, multi-layer, agent)
+- **Results**: FFN LM 23% accuracy (14,655 params, W=8), Human 100%. KnowledgeQA 36%, everything else near 0%.
 - **Human lens**: "Humans generalize rules; MLPs memorize windows"
+
+---
+
+**>>> NEXT STEP: Step 10 <<<**
 
 #### Step 10: Chapter 03 — RNN/GRU
 - **What**: Recurrent models. "State" creates illusion of memory.
@@ -361,7 +364,7 @@ Generated via `python -m not_a_brain.dashboard.generate`, the HTML report includ
 
 ## Verification Plan
 
-1. `pytest tests/` — all unit tests pass (currently 68 passing)
+1. `pytest tests/` — all unit tests pass (currently 76 passing)
 2. `python -m not_a_brain.dashboard.generate` — produces valid HTML with all chapters
 3. Each `chapters/XX/run.py` completes in < 5 minutes on CPU
 4. Each `chapters/XX/chapter.md` has LaTeX formulas, step-by-step logic, and human lens
