@@ -285,14 +285,17 @@ The 6 cognitive ingredients scored per chapter:
 
 ---
 
-**>>> NEXT STEP: Step 11 <<<**
-
-#### Step 11: Chapter 04 — Attention
-- **What**: Scaled dot-product attention in isolation. Then multi-head.
-- **Implements**: `SingleHeadAttention`, `MultiHeadAttention` in `src/not_a_brain/models/layers.py`
-- **Chapter**: `chapters/04_attention/chapter.md` + `chapters/04_attention/run.py`
-- **Experiments**: copy task, retrieve-last-seen task, attention heatmaps
+#### Step 11: Chapter 04 — Attention — DONE
+- **What**: Scaled dot-product attention in isolation. Then multi-head. Attention heatmap visualization.
+- **Implements**: `SingleHeadAttention`, `MultiHeadAttention`, `AttentionLM`, `AttentionAgent` in `src/not_a_brain/models/layers.py`
+- **Chapter**: `chapters/04_attention/chapter.md` (LaTeX for scaled dot-product, causal mask, multi-head, positional encoding) + `chapters/04_attention/run.py` (with attention heatmap generation)
+- **Test**: `pytest tests/test_attention.py` — 15 tests passing (causal mask, weights sum to 1, multi-head shapes, training, generation, heatmap access)
+- **Results**: Attention LM 5.0% (17,423 params), grammar 26%, arithmetic 4% (first model to score >0 on arithmetic). Heatmaps show per-head attention patterns.
 - **Human lens**: "Humans attend guided by goals; attention is content-based similarity"
+
+---
+
+**>>> NEXT STEP: Step 12 <<<**
 
 #### Step 12: Chapter 05 — Transformer (Tiny GPT)
 - **What**: Full tiny GPT. 2-4 layers. Core model for all subsequent chapters.
@@ -367,7 +370,7 @@ Generated via `python -m not_a_brain.dashboard.generate`, the HTML report includ
 
 ## Verification Plan
 
-1. `pytest tests/` — all unit tests pass (currently 89 passing)
+1. `pytest tests/` — all unit tests pass (currently 104 passing)
 2. `python -m not_a_brain.dashboard.generate` — produces valid HTML with all chapters
 3. Each `chapters/XX/run.py` completes in < 5 minutes on CPU
 4. Each `chapters/XX/chapter.md` has LaTeX formulas, step-by-step logic, and human lens
