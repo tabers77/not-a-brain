@@ -80,14 +80,14 @@ Attention processes the entire question. At generation time, the model attends t
 
 Attention made retrieval perfect, but hallucination is worse in a subtle way. The FFN and RNN produced nonsensical outputs (`"the"`, `"mars"`) that were obviously wrong. Attention retrieves a wrong but plausible-looking answer — a real capital city, just not the right one. There is no mechanism for "I don't have this knowledge." Attention always retrieves the most similar thing from what it has seen, even when the correct answer is to abstain.
 
-### Evolution So Far
+### Summary Table
 
 ```
-| Prompt                 | Ch01 Bigram | Ch02 FFN | Ch03 GRU | Ch04 Attention | Correct   |
-|------------------------|-------------|----------|----------|----------------|-----------|
-| ADD 5 3 =              | "1"         | "5"      | "5"      | "5"            | "8"       |
-| FACT: paris... Q: ...? | " "         | "is"     | "capital"| "paris" (!)    | "paris"   |
-| Q: capital of Moon?    | "the"       | "the"    | "mars"   | "tokyo"        | "unknown" |
+| Prompt                 | Ch01 Bigram | Ch02 FFN | Ch03 GRU | Ch04 Attention | Correct   | What changed                          |
+|------------------------|-------------|----------|----------|----------------|-----------|---------------------------------------|
+| ADD 5 3 =              | "1"         | "5"      | "5"      | "5"            | "8"       | Attends to operands, but no FFN       |
+| FACT: paris... Q: ...? | " "         | "is"     | "capital"| "paris" (!)    | "paris"   | SOLVED -- attention reaches "paris"   |
+| Q: capital of Moon?    | "the"       | "the"    | "mars"   | "tokyo"        | "unknown" | Still hallucinates -- no abstention   |
 ```
 
 The pattern: each chapter solves a harder subproblem. Bigrams had no context. The FFN had a window. The RNN had a compressing state. Attention has direct access — and that is enough for retrieval. Computation and abstention remain unsolved.

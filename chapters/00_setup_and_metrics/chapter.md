@@ -58,11 +58,13 @@ The human agent is a rule-based system with working memory, long-term memory, ta
 
 ### Summary Table
 
-| Prompt | Random Agent | Human Agent | What's Needed |
-|--------|-------------|-------------|---------------|
-| `ADD 5 3 =` | `"x"` (random char) | `"8"` (computes 5+3) | Computation |
-| `FACT: paris... Q: capital?` | `"m"` (random) | `"paris"` (finds in context) | Retrieval from context |
-| `Q: capital of Moon?` | `"q"` (random, hallucinates) | `"unknown"` (abstains) | Uncertainty mechanism |
+```
+| Prompt                       | Random Agent              | Human Agent                | What's Needed          |
+|------------------------------|---------------------------|----------------------------|------------------------|
+| ADD 5 3 =                    | "x" (random char)         | "8" (computes 5+3)         | Computation            |
+| FACT: paris... Q: capital?   | "m" (random)              | "paris" (finds in context) | Retrieval from context |
+| Q: capital of Moon?          | "q" (random, hallucinates)| "unknown" (abstains)       | Uncertainty mechanism  |
+```
 
 ### The Evolution Across Chapters
 

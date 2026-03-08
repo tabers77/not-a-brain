@@ -232,16 +232,16 @@ The Transformer is the most powerful architecture we have built so far, and it S
 
 ---
 
-### The Evolution Table
+### Summary Table
 
 This is the climax of the project so far. Five architectures, three prompts, one clear pattern:
 
 ```
-| Prompt                | Ch01 Bigram | Ch02 FFN | Ch03 GRU | Ch04 Attention | Ch05 Transformer | Human      |
-|-----------------------|-------------|----------|----------|----------------|------------------|------------|
-| ADD 5 3 =             | "1"         | "5"      | "5"      | "5"            | "8"              | "8"        |
-| FACT: paris...        | " "         | "is"     | "capital"| "paris"        | "paris"          | "paris"    |
-| Q: capital of Moon?   | "the"       | "the"    | "mars"   | "tokyo"        | "earth"          | "unknown"  |
+| Prompt                | Ch01 Bigram | Ch02 FFN | Ch03 GRU | Ch04 Attention | Ch05 Transformer | Human     | What changed                          |
+|-----------------------|-------------|----------|----------|----------------|------------------|-----------|---------------------------------------|
+| ADD 5 3 =             | "1"         | "5"      | "5"      | "5"            | "8"              | "8"       | SOLVED -- attention + FFN computes    |
+| FACT: paris...        | " "         | "is"     | "capital"| "paris"        | "paris"          | "paris"   | Still solved (from Ch04)              |
+| Q: capital of Moon?   | "the"       | "the"    | "mars"   | "tokyo"        | "earth"          | "unknown" | Still hallucinates -- no abstention   |
 ```
 
 Two out of three. The model can now retrieve AND compute. But it still cannot abstain -- it will always hallucinate on unanswerable questions.
