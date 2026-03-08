@@ -4,6 +4,51 @@
 
 Build the simplest possible language model — one that predicts the next character by counting how often characters appear together. No neural network, no gradients, just statistics.
 
+## The Running Example
+
+Every chapter in this book tests the same three benchmark prompts. They are designed to probe three distinct capabilities: computation, retrieval, and abstention. Here we trace all three through a bigram and a trigram model to see exactly where counting-based models break.
+
+### Prompt 1: `"ADD 5 3 ="` -- expected `"8"` (computation)
+
+**Bigram**: The model looks at only the last character, `=`. During training, `=` was followed by digits 0-9 with various frequencies depending on the arithmetic results in the corpus. Suppose the training distribution looks like:
+
+- P("1" | "=") = 0.12
+- P("5" | "=") = 0.11
+- P("8" | "=") = 0.10
+- P("9" | "=") = 0.10
+- P("0" | "=") = 0.09
+- ... other digits fill the rest
+
+The model picks the most common digit after `=`, say `"1"`. That is wrong. It never sees the `5` or the `3` — those are 4 and 6 characters back, completely outside the 1-character window.
+
+**Trigram**: The model looks at the last two characters, `" ="` (space then equals). In training, `" ="` was followed by the same spread of digits — the space before `=` carries no information about which operands appeared earlier. The trigram might pick `"9"`. Still wrong. The operands `5` and `3` are 4+ characters back, outside the 2-character window.
+
+### Prompt 2: `"FACT: paris is capital of france. Q: capital of france?"` -- expected `"paris"` (retrieval)
+
+**Bigram**: The model looks at only the last character, `?`. In training, `?` was most commonly followed by a space or newline — it is a sentence-ending character. The model generates `" "`, then from `" "` generates the most common character after a space (perhaps `"t"`), then from `"t"` generates `"h"`, and so on. It produces common English fragments, nothing resembling `"paris"`. The answer is more than 40 characters back in the prompt — utterly unreachable.
+
+**Trigram**: The model looks at `"e?"` (the last two characters of `"france?"`). In training, `"e?"` might have been followed by various characters. Perhaps it generates `"p"` by coincidence, but the next step would look at `"?p"` and produce something unrelated. There is no mechanism to locate the word `"paris"` from the fact stated earlier in the prompt. The relevant context is dozens of characters away.
+
+### Prompt 3: `"Q: What is the capital of the Moon?"` -- expected `"unknown"` (hallucination/abstention)
+
+**Bigram**: Same mechanics as Prompt 2 — the model sees `?` and generates whatever character most commonly follows `?` in training. It outputs `" "`, then `"t"`, then `"h"`, then `"e"` — producing common English patterns. It has no concept of "this question is unanswerable." It will always generate something.
+
+**Trigram**: The model sees `"n?"` (from `"Moon?"`). It generates common continuations. Perhaps `" "`, then `"th"`, then `"e"`. Again, common English fragments. There is zero mechanism for abstention. N-gram models always produce output — they cannot represent uncertainty about whether an answer exists.
+
+This is a 100% hallucination rate. Every unanswerable question gets a confident-looking (but meaningless) response.
+
+### Summary Table
+
+```
+| Prompt                       | Bigram output | Trigram output | Correct | Verdict                              |
+|------------------------------|---------------|----------------|---------|--------------------------------------|
+| ADD 5 3 =                    | "1"           | "9"            | "8"     | Wrong -- can't see operands          |
+| FACT: paris... Q: capital?   | " "           | "p"            | "paris" | Wrong -- context too far back        |
+| Q: capital of Moon?          | "the"         | "the"          | "unknown"| Hallucination -- always generates   |
+```
+
+Three prompts, three failures, three different reasons. The rest of this chapter explains the mechanics behind those failures.
+
 ## How N-grams Work
 
 A **language model** assigns a probability to the next token given the previous tokens. N-grams do this by counting co-occurrences in training data.
@@ -16,33 +61,18 @@ $$
 P(c_t \mid c_{t-1}) = \frac{\text{count}(c_{t-1}, c_t)}{\text{count}(c_{t-1})}
 $$
 
-**Worked example with a real training sentence**: Suppose our training corpus contains these three sequences:
-
-```
-"ADD 5 3 =8"
-"ADD 2 7 =9"
-"ADD 1 4 =5"
-```
-
-The bigram model counts every pair of consecutive characters. For the character `=`:
-- `=` is followed by `8` once, `9` once, `5` once
-- count(`=`) = 3 total
-- P(`8` | `=`) = 1/3, P(`9` | `=`) = 1/3, P(`5` | `=`) = 1/3
-
-Now when we prompt with `"ADD 6 2 ="`, the model looks at **only the `=`** and picks one of {8, 9, 5} — it has no idea the answer should be 8, because it never looks at the `6` and `2`.
-
-Similarly, after `A`: `A` is always followed by `D` in these examples, so P(`D`|`A`) = 1.0. The model "knows" `A→D` but only because it memorized a pattern, not because it understands anything.
+This is exactly what happened with our three benchmark prompts. For Prompt 1, the model computes P(next | `=`) by counting how often each character followed `=` in training. For Prompts 2 and 3, it computes P(next | `?`). In both cases, the single previous character carries almost no information about the correct answer.
 
 **Generation**: Start with a prompt, then repeatedly pick the most likely next character:
 
 ```
 Prompt: "ADD 5 3 ="
-Step 1: After "=" → most common next char from training (e.g., "1")
-Step 2: After "1" → most common next char (e.g., "9")
+Step 1: After "=" -> most common next char from training (e.g., "1")
+Step 2: After "1" -> most common next char (e.g., "9")
 ...
 ```
 
-The problem: the model only sees **one character back**. It doesn't know what operation was requested or what the numbers were.
+The problem: the model only sees **one character back**. For `"ADD 5 3 ="`, the digits `5` and `3` are invisible. For the retrieval prompt, the word `"paris"` is invisible. For the Moon prompt, the concept of "unanswerable" does not exist.
 
 ### Trigram Model
 
@@ -52,12 +82,7 @@ $$
 P(c_t \mid c_{t-2}, c_{t-1}) = \frac{\text{count}(c_{t-2}, c_{t-1}, c_t)}{\text{count}(c_{t-2}, c_{t-1})}
 $$
 
-**Worked example**: Given the same three training sentences, the trigram counts pairs of two characters:
-- The pair `" ="` (space then equals) is followed by `8`, `9`, `5` — same problem, still random.
-- But the pair `"=8"` at the end is always followed by EOS (end of sequence) — so the trigram learns to stop after one digit.
-- The pair `"D "` (D then space) is always followed by a digit — the trigram learns "after `D `, expect a number."
-
-Two characters of context helps with local patterns (like "stop after the answer digit"), but `" ="` still doesn't know which digit to produce — the operands are 6+ characters back, far outside the 2-character window.
+Two characters of context helps with local patterns — for instance, the trigram can learn that after `"=8"` the sequence should end, or that after `"D "` a digit is expected. But for our benchmark prompts, the extra character of context changes nothing fundamental. The pair `" ="` still cannot see the operands in Prompt 1. The pair `"e?"` still cannot reach `"paris"` in Prompt 2. The pair `"n?"` still cannot recognize that Prompt 3 is unanswerable.
 
 ### Fallback (Backoff)
 
@@ -71,15 +96,15 @@ P(c_t \mid c_{t-1}) & \text{otherwise (bigram fallback)}
 \end{cases}
 $$
 
-**Worked example**: Suppose we encounter the context `"x="` at generation time, but our training data never had `x` before `=`. The trigram has no counts for the pair `(x, =)`, so it falls back: instead of P(next | `x`, `=`), it uses P(next | `=`) from the bigram. This prevents the model from getting completely stuck on unseen contexts, but the fallback knows even less about what should come next.
+Suppose during generation of Prompt 2's answer, the model encounters a character pair it has never seen in training. It falls back to the bigram, which knows even less. Backoff prevents the model from getting stuck on unseen contexts, but it provides strictly less information — falling back from "can't solve the task" to "really can't solve the task."
 
 ## Step-by-Step: What Happens During Training
 
 1. **Collect training data**: generate prompt+answer pairs from all tasks
-   - `"ADD 5 3 =8"`, `"COPY: abc|abc"`, `"CHECK: ( )valid"`, etc.
+   - `"ADD 5 3 =8"`, `"FACT: paris is capital of france. Q: capital of france?paris"`, etc.
 
 2. **Fit the tokenizer**: map each character to an integer ID
-   - `'A'→4, 'D'→5, ' '→6, '5'→7, ...`
+   - `'A'->4, 'D'->5, ' '->6, '5'->7, ...`
 
 3. **Count co-occurrences**: for every consecutive pair (bigram) or triple (trigram), increment a counter
    - Bigram: `counts[prev_char][next_char] += 1`
@@ -87,53 +112,26 @@ $$
 
 4. **That's it** — no optimization loop, no loss function, no gradients.
 
-## Step-by-Step: What Happens During Generation
-
-Let's trace the bigram generating from the prompt `"COPY: hi|"`:
-
-```
-Step 0: Prompt = "COPY: hi|"
-        Model looks at last char: "|"
-        In training, "|" was followed by many different chars (a, b, c, h, x...)
-        Picks most frequent: say "a"       →  "COPY: hi|a"
-
-Step 1: Last char = "a"
-        In training, "a" was often followed by "b", "l", "n"...
-        Picks most frequent: say "l"       →  "COPY: hi|al"
-
-Step 2: Last char = "l"
-        Picks: "i"                         →  "COPY: hi|ali"
-        ...and so on, drifting away from "hi" (the correct answer)
-```
-
-The model generated `"ali..."` instead of `"hi"` because it never looks back at what came before `"|"`. Each step only sees the single previous character — the prompt content is invisible.
-
-For the trigram, replace "last char" with "last two chars." It would see `"|a"` at step 1 instead of just `"a"`, which helps slightly but still can't reach back to `"hi"`.
-
 ## Why N-grams Fail on Our Tasks
 
-| Task | Why It Fails | What Would Be Needed |
-|------|-------------|---------------------|
-| **Arithmetic** | After `=`, the model picks the globally most common digit — it doesn't know what `5 + 3` equals | Understanding of numbers and operations |
-| **Copy** | After `\|`, it generates the most common character, not the specific sequence to copy | Memory of the full prompt |
-| **Grammar** | Can predict common bracket pairs locally (`()`) but can't track nesting depth | A stack or counter |
-| **Knowledge QA** | After `?`, it outputs common characters, not the specific fact from context | Attention to relevant context |
-| **Compositional** | Can't chain operations — no intermediate state tracking | Working memory |
-| **Unknown** | Always generates something — no mechanism to abstain | Uncertainty estimation |
+The three benchmark prompts expose the three core failure modes. The table below connects each task category to the specific bottleneck:
+
+| Task | Why It Fails | Running Example |
+|------|-------------|-----------------|
+| **Arithmetic** | After `=`, the model picks the globally most common digit — it doesn't know what `5 + 3` equals | Prompt 1: bigram sees `=`, picks `"1"` instead of `"8"` |
+| **Retrieval / Knowledge QA** | After `?`, it outputs common characters, not the specific fact from context | Prompt 2: `"paris"` is 40+ characters back, unreachable |
+| **Hallucination / Abstention** | Always generates something — no mechanism to abstain or signal uncertainty | Prompt 3: outputs `"the"` instead of `"unknown"` |
+| **Copy** | After the delimiter, it generates the most common character, not the specific sequence to copy | Same as retrieval — the content to copy is outside the window |
+| **Grammar** | Can predict common bracket pairs locally (`()`) but can't track nesting depth | Would need a stack or counter |
+| **Compositional** | Can't chain operations — no intermediate state tracking | Would need working memory |
 
 The fundamental problem: **n-grams have a fixed, tiny context window** (1-2 characters). Every task requires understanding that spans the full prompt.
 
 ## Human Lens
 
-Humans don't solve these tasks by counting character co-occurrences. They:
+A human given `"ADD 5 3 ="` parses the operation, holds the numbers `5` and `3` in working memory, applies the addition algorithm, and writes `"8"`. A human given `"FACT: paris is capital of france. Q: capital of france?"` scans the fact, locates `"paris"`, and retrieves it. A human given `"Q: What is the capital of the Moon?"` recognizes that the question is unanswerable — the Moon has no capital — and says `"unknown"`.
 
-1. **Parse** the prompt to understand the task type (arithmetic, copy, etc.)
-2. **Apply a learned algorithm** (addition rules, stack-based bracket matching)
-3. **Hold intermediate results** in working memory
-4. **Verify** the answer before responding
-5. **Abstain** when the question has no answer
-
-N-gram models have **none** of these capabilities. The gap between 0-14% (n-grams) and 100% (human) reflects the absence of understanding, memory, and reasoning.
+N-grams can do none of this. They cannot parse structure, hold intermediate results, apply learned algorithms, attend to distant context, or recognize when a question has no answer. The gap between 0-14% accuracy (n-grams) and 100% (human) reflects the complete absence of understanding, memory, and reasoning.
 
 ## What to Observe When Running
 
@@ -155,4 +153,4 @@ This chart shows accuracy per task for bigram, trigram, and human agent. The n-g
 
 ## What's Next
 
-In **Chapter 02 (Feed-Forward LM)**, we replace counting with a neural network. A fixed-window MLP can learn more complex patterns within its window — but it's still limited by having no way to handle variable-length dependencies.
+In **Chapter 02 (Feed-Forward LM)**, we replace counting with a neural network. A fixed-window MLP can learn more complex patterns within its window — but it is still limited by having no way to handle variable-length dependencies. The three benchmark prompts carry forward: we will trace `"ADD 5 3 ="`, the retrieval prompt, and the Moon question through every architecture in this book, watching each one get closer to (or further from) the correct answers.

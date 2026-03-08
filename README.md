@@ -106,6 +106,20 @@ Task types (all generate data on the fly):
 - **Compositional**: `reverse("hello")` -> `olleh`
 - **Unknown**: questions with no answer in context (for hallucination/abstention testing)
 
+## The Running Example
+
+Every chapter traces the **same 3 benchmark prompts** through that chapter's model, so you can see architectures evolve on identical inputs:
+
+| Prompt | Tests | Solved at |
+|--------|-------|-----------|
+| `"ADD 5 3 ="` → `"8"` | Computation | Chapter 05 (Transformer) — needs retrieval + FFN |
+| `"FACT: paris is capital of france. Q: capital of france?"` → `"paris"` | Retrieval | Chapter 04 (Attention) — needs direct access to context |
+| `"Q: What is the capital of the Moon?"` → `"unknown"` | Hallucination | **Never** — no architecture from 01-05 can abstain |
+
+The punchline: better architectures improve accuracy but never fix hallucination. That requires an explicit uncertainty mechanism (Chapters 06+).
+
+See `documentation/CHAPTER_GUIDE.md` for the full writing spec.
+
 ## Status
 
 This project is under active development. Phase 1 (Chapters 00-05) is the current focus.

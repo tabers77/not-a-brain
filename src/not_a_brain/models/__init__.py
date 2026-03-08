@@ -5,3 +5,7 @@ from not_a_brain.models.rnn_lm import RNNLM, GRULM, RNNAgent
 from not_a_brain.models.layers import (
     SingleHeadAttention, MultiHeadAttention, AttentionLM, AttentionAgent,
 )
+from not_a_brain.models.transformer import (
+    TransformerLM, TransformerAgent, TransformerBlock, FeedForward,
+    CausalSelfAttention,
+)
