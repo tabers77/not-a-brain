@@ -29,11 +29,15 @@ This table summarizes what each model does with each prompt. Use these as the ba
 | 03 | GRU | `"5"` (better gating, still can't compute) | `"capital"` (retrieves concept, not the answer) | `"mars"` (hallucinates) |
 | 04 | Attention LM | `"5"` (attends to operands, no FFN to compute) | `"paris"` (attends directly to answer!) | `"tokyo"` (hallucinates — retrieves a capital) |
 | 05 | Transformer | `"8"` (attention retrieves, FFN computes!) | `"paris"` (attention + residuals preserve signal) | `"earth"` (STILL hallucinates — no abstention) |
+| 06 | Tiny Transformer | `"5"` (not enough FFN capacity) | `"capital"` (noisy retrieval) | `"earth"` (hallucinates) |
+| 06 | Small Transformer | `"8"` (correct — enough capacity) | `"paris"` (correct) | `"mars"` (hallucinates) |
+| 06 | Medium Transformer | `"8"` (correct, robust) | `"paris"` (correct) | `"tokyo"` (hallucinates) |
+| 06 | Large Transformer | `"8"` (correct, robust) | `"paris"` (correct) | `"paris"` (hallucinates — picks common capital) |
 
 **Key narrative across chapters:**
 - **Prompt 1 (computation)**: Only solved when we get both retrieval (attention, Ch04) AND computation (FFN, Ch05)
 - **Prompt 2 (retrieval)**: Solved once we get direct access to distant positions (attention, Ch04)
-- **Prompt 3 (abstention)**: NEVER solved by any architecture — requires an explicit uncertainty mechanism. This is the punchline: better architecture helps accuracy but not hallucination
+- **Prompt 3 (abstention)**: NEVER solved by any architecture or scale — requires an explicit uncertainty mechanism. This is the punchline: better architecture AND more parameters help accuracy but not hallucination
 
 ### How to Write Each Running Example
 

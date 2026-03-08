@@ -91,6 +91,41 @@ def plot_comparison_bar(labels: list[str], scores: dict[str, list[float]],
     return fig
 
 
+def plot_scaling_curve(param_counts: list[int], losses: list[float],
+                       model_names: list[str] | None = None,
+                       title: str = "Loss vs Parameters",
+                       save_path: str | None = None,
+                       show: bool = False) -> plt.Figure:
+    """Plot loss vs parameter count on a log-linear scale.
+
+    Args:
+        param_counts: number of parameters per model
+        losses: final loss per model
+        model_names: labels for each point
+    """
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.plot(param_counts, losses, marker="o", linewidth=2, markersize=8,
+            color="#2196F3", zorder=3)
+
+    if model_names:
+        for i, name in enumerate(model_names):
+            ax.annotate(name, (param_counts[i], losses[i]),
+                        textcoords="offset points", xytext=(8, 8),
+                        fontsize=9, color="#333")
+
+    ax.set_xscale("log")
+    ax.set_xlabel("Parameters (log scale)")
+    ax.set_ylabel("Final Loss")
+    ax.set_title(title)
+    ax.grid(True, alpha=0.3)
+    fig.tight_layout()
+    if save_path:
+        fig.savefig(save_path, dpi=150, bbox_inches="tight")
+    if show:
+        plt.show()
+    return fig
+
+
 def plot_evolution_curve(chapter_names: list[str],
                          task_scores: dict[str, list[float]],
                          title: str = "Capability Evolution",
