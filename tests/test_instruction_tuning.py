@@ -11,13 +11,20 @@ from not_a_brain.tasks import ArithmeticTask, CopyTask, UnknownTask
 from not_a_brain.utils.training import train, make_dataset
 
 # Import SFT-specific helpers from the chapter
-import sys
+import importlib.util
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent / "chapters" / "07_instruction_tuning"))
-from run import (
-    build_raw_corpus, build_instruction_corpus, prepare_sequences,
-    SFTAgent, INST_PREFIX, ANS_MARKER,
-)
+
+_ch07_path = Path(__file__).parent.parent / "chapters" / "07_instruction_tuning" / "run.py"
+_spec = importlib.util.spec_from_file_location("ch07_run", _ch07_path)
+_ch07 = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_ch07)
+
+build_raw_corpus = _ch07.build_raw_corpus
+build_instruction_corpus = _ch07.build_instruction_corpus
+prepare_sequences = _ch07.prepare_sequences
+SFTAgent = _ch07.SFTAgent
+INST_PREFIX = _ch07.INST_PREFIX
+ANS_MARKER = _ch07.ANS_MARKER
 
 
 @pytest.fixture

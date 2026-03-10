@@ -321,12 +321,15 @@ The 6 cognitive ingredients scored per chapter:
 - **Results**: SFT improves format compliance, pre-training transfers. Hallucination stays 100%.
 - **Human lens**: "Humans follow instructions via shared intent, not format fine-tuning"
 
-**>>> NEXT STEP: Step 15 <<<**
-
-#### Step 15: Chapter 08 — Preference / RLHF (Toy)
-- **What**: Tiny reward model + simple DPO (simpler than PPO)
-- **Chapter**: `chapters/08_preference_and_rlhf_toy/chapter.md` + `run.py`
+#### Step 15: Chapter 08 — Preference / RLHF (Toy DPO) — DONE
+- **What**: Build preference pairs (chosen vs rejected), implement DPO loss, fine-tune SFT model. Three-phase pipeline: pre-train → SFT → DPO.
+- **Implements**: `dpo_loss()`, `train_dpo()`, `build_preference_pairs()`, wrong-answer generators per task in `chapters/08_preference_and_rlhf/run.py`
+- **Chapter**: `chapters/08_preference_and_rlhf/chapter.md` + `chapters/08_preference_and_rlhf/run.py`
+- **Test**: `pytest tests/test_preference.py` — 10 tests passing
+- **Results**: DPO loss starts at ~0.693 (log 2) and decreases. Accuracy may improve slightly. Hallucination stays 100%.
 - **Human lens**: "Human values are grounded; RLHF is statistical preference matching"
+
+**>>> NEXT STEP: Step 16 <<<**
 
 #### Step 16: Chapter 09 — Decoding & Hallucination
 - **What**: All decoding strategies, "unknown" prompts, hallucination measurement
