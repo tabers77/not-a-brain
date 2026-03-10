@@ -329,12 +329,15 @@ The 6 cognitive ingredients scored per chapter:
 - **Results**: DPO loss starts at ~0.693 (log 2) and decreases. Accuracy may improve slightly. Hallucination stays 100%.
 - **Human lens**: "Human values are grounded; RLHF is statistical preference matching"
 
-**>>> NEXT STEP: Step 16 <<<**
-
-#### Step 16: Chapter 09 — Decoding & Hallucination
-- **What**: All decoding strategies, "unknown" prompts, hallucination measurement
+#### Step 16: Chapter 09 — Decoding & Hallucination — DONE
+- **What**: Implement greedy, temperature, top-k, top-p decoding in `src/not_a_brain/models/decoding.py`. Train SFT model, run all strategies on same prompts, measure hallucination rate and diversity.
+- **Implements**: `decode()`, `score_sequence()`, `_apply_top_k()`, `_apply_top_p()`, `STRATEGIES` dict, `DecodingAgent` in run.py
 - **Chapter**: `chapters/09_decoding_and_hallucination/chapter.md` + `run.py`
+- **Test**: `pytest tests/test_decoding.py` — 15 tests passing
+- **Results**: All strategies hallucinate at ~100%. Higher temperature = more diverse hallucinations, never fewer.
 - **Human lens**: "Humans say 'I don't know'; LLMs generate plausible text"
+
+**>>> NEXT STEP: Step 17 <<<**
 
 ---
 

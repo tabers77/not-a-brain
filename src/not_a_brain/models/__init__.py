@@ -9,3 +9,4 @@ from not_a_brain.models.transformer import (
     TransformerLM, TransformerAgent, TransformerBlock, FeedForward,
     CausalSelfAttention,
 )
+from not_a_brain.models.decoding import decode, score_sequence, STRATEGIES
