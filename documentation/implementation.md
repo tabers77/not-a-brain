@@ -337,16 +337,19 @@ The 6 cognitive ingredients scored per chapter:
 - **Results**: All strategies hallucinate at ~100%. Higher temperature = more diverse hallucinations, never fewer.
 - **Human lens**: "Humans say 'I don't know'; LLMs generate plausible text"
 
-**>>> NEXT STEP: Step 17 <<<**
-
 ---
 
 ### Phase 3: Modern Stack (Chapters 10-12)
 
-#### Step 17: Chapter 10 — RAG Minimal
-- **What**: BM25 retrieval over mini knowledge base, prepend to context
+#### Step 17: Chapter 10 — RAG Minimal — DONE
+- **What**: BM25 retrieval over mini knowledge base, prepend to context. Implements `BM25Retriever` (with IDF, TF saturation, length normalization), `RAGAgent`, `SFTAgent`, `build_rag_corpus()`.
+- **Implements**: `BM25Retriever`, `RAGAgent`, `SFTAgent`, corpus builders with `CONTEXT:` prefix in `chapters/10_rag_minimal/run.py`
 - **Chapter**: `chapters/10_rag_minimal/chapter.md` + `run.py`
-- **Human lens**: "Humans seek evidence and reconcile contradictions"
+- **Tests**: `tests/test_rag.py` (24 tests — BM25 retriever, IDF, corpus builders, agents, sequences)
+- **Key finding**: RAG improves knowledge QA but still hallucinates on unanswerable questions — BM25 retrieves by keyword match, not semantic relevance
+- **Human lens**: "Humans seek evidence and reconcile contradictions; RAG only does step 1 (seek)"
+
+**>>> NEXT STEP: Step 18 <<<**
 
 #### Step 18: Chapter 11 — Tools & Function Calling
 - **What**: Give tiny GPT a calculator and lookup tool via simple interface
