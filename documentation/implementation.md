@@ -295,29 +295,33 @@ The 6 cognitive ingredients scored per chapter:
 
 ---
 
-**>>> NEXT STEP: Step 12 <<<**
-
-#### Step 12: Chapter 05 — Transformer (Tiny GPT)
+#### Step 12: Chapter 05 — Transformer (Tiny GPT) — DONE
 - **What**: Full tiny GPT. 2-4 layers. Core model for all subsequent chapters.
-- **Implements**: assembles `src/not_a_brain/models/tiny_gpt.py` from layers built in ch04
+- **Implements**: `TransformerLM`, `TransformerAgent` in `src/not_a_brain/models/transformer.py`
 - **Chapter**: `chapters/05_transformer/chapter.md` + `chapters/05_transformer/run.py`
-- **Experiments**: train on all tasks, significant jump over RNN, attention heatmaps per layer, loss curves
-- **Dashboard milestone**: first full dashboard run across ch01-05 showing evolution curve
+- **Test**: `pytest tests/test_transformer.py` — 14 tests passing
 - **Human lens**: "Depth + attention = powerful pattern matching. Still not reasoning."
 
 ---
 
 ### Phase 2: Behaviors (Chapters 06-09)
 
-#### Step 13: Chapter 06 — Scaling Laws (Toy)
-- **What**: Train 3-5 model sizes on same data, plot loss vs params/data/compute
-- **Chapter**: `chapters/06_scaling_laws_toy/chapter.md` + `run.py`
+#### Step 13: Chapter 06 — Scaling Laws (Toy) — DONE
+- **What**: Train same Transformer at 4 sizes (tiny/small/medium/large), plot loss vs params
+- **Chapter**: `chapters/06_scaling_laws/chapter.md` + `chapters/06_scaling_laws/run.py`
+- **Test**: `pytest tests/test_scaling.py` — 7 tests passing
+- **Results**: Power law confirmed. Hallucination stays 100% at all scales.
 - **Human lens**: "Humans don't scale by parameter count"
 
-#### Step 14: Chapter 07 — Instruction Tuning (Toy SFT)
-- **What**: Fine-tune tiny GPT on instruction-formatted data
-- **Chapter**: `chapters/07_instruction_tuning_toy/chapter.md` + `run.py`
+#### Step 14: Chapter 07 — Instruction Tuning (Toy SFT) — DONE
+- **What**: Pre-train Transformer on raw text, then fine-tune (SFT) on instruction-formatted data. Compare base vs SFT vs from-scratch.
+- **Implements**: `SFTAgent` in `chapters/07_instruction_tuning/run.py`, `INST: ... ANS: ...` format
+- **Chapter**: `chapters/07_instruction_tuning/chapter.md` + `chapters/07_instruction_tuning/run.py`
+- **Test**: `pytest tests/test_instruction_tuning.py` — 12 tests passing
+- **Results**: SFT improves format compliance, pre-training transfers. Hallucination stays 100%.
 - **Human lens**: "Humans follow instructions via shared intent, not format fine-tuning"
+
+**>>> NEXT STEP: Step 15 <<<**
 
 #### Step 15: Chapter 08 — Preference / RLHF (Toy)
 - **What**: Tiny reward model + simple DPO (simpler than PPO)

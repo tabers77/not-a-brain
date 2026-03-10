@@ -113,29 +113,23 @@ The largest model has the richest representations. It matches the query pattern 
 
 ### Summary Table
 
-```
-| Model     | Params  | Prompt 1 (ADD 5 3 =) | Prompt 2 (FACT...Q:?) | Prompt 3 (Moon?) | Halluc. Rate | What changed                        |
-|-----------|---------|----------------------|-----------------------|------------------|--------------|-------------------------------------|
-| Tiny      | ~1.5K   | "5" (can't compute)  | "capital" (noisy)     | "earth"          | 100%         | Not enough capacity for either task |
-| Small     | ~6K     | "8" (correct!)       | "paris" (correct!)    | "mars"           | 100%         | Enough capacity for simple tasks    |
-| Medium    | ~30K    | "8" (correct, robust)| "paris" (correct)     | "tokyo"          | 100%         | More robust, diminishing returns    |
-| Large     | ~65K    | "8" (correct, robust)| "paris" (correct)     | "paris"          | 100%         | Most fluent hallucination           |
-| Human     | —       | "8" (computes)       | "paris" (retrieves)   | "unknown"        | 0%           | Abstention -- mechanism, not scale  |
-```
+| Prompt                     | Ch06 Tiny (~1.5K) | Ch06 Small (~6K) | Ch06 Medium (~30K) | Ch06 Large (~65K) | Correct   | What changed                          |
+|----------------------------|--------------------|-------------------|---------------------|--------------------|-----------|---------------------------------------|
+| ADD 5 3 =                  | "5"                | "8"               | "8"                 | "8"                | "8"       | Tiny fails -- Small+ solve it         |
+| FACT: paris... Q: capital? | "capital"          | "paris"           | "paris"             | "paris"            | "paris"   | Tiny noisy -- Small+ solve it         |
+| Q: capital of Moon?        | "earth"            | "mars"            | "tokyo"             | "paris"            | "unknown" | 100% hallucination at EVERY scale     |
 
-**The punchline**: The first two columns improve with scale. The last column never does. Scaling amplifies what the architecture CAN do (retrieval, computation). It cannot create capabilities the architecture LACKS (abstention).
+**The punchline**: The first two rows improve with scale. The last row never does. Scaling amplifies what the architecture CAN do (retrieval, computation). It cannot create capabilities the architecture LACKS (abstention).
 
 ### Evolution So Far
 
 Placing Chapter 06 in the full progression across all chapters:
 
-```
-| Prompt                | Ch01 Bigram | Ch02 FFN | Ch03 GRU | Ch04 Attention | Ch05 Transformer | Ch06 (best) | Human     | What changed                           |
-|-----------------------|-------------|----------|----------|----------------|------------------|-------------|-----------|----------------------------------------|
-| ADD 5 3 =             | "1"         | "5"      | "5"      | "5"            | "8"              | "8"         | "8"       | Scaling makes Ch05 solution more robust|
-| FACT: paris...        | " "         | "is"     | "capital"| "paris"        | "paris"          | "paris"     | "paris"   | Already solved -- scaling adds margin  |
-| Q: capital of Moon?   | "the"       | "the"    | "mars"   | "tokyo"        | "earth"          | "paris"     | "unknown" | 4x more params, STILL hallucinates    |
-```
+| Prompt                     | Ch01 Bigram | Ch02 FFN | Ch03 GRU | Ch04 Attention | Ch05 Transformer | Ch06 (best) | Human     | What changed                            |
+|----------------------------|-------------|----------|----------|----------------|------------------|-------------|-----------|-----------------------------------------|
+| ADD 5 3 =                  | "1"         | "5"      | "5"      | "5"            | "8"              | "8"         | "8"       | Scaling makes Ch05 solution more robust |
+| FACT: paris... Q: capital? | " "         | "is"     | "capital"| "paris"        | "paris"          | "paris"     | "paris"   | Already solved -- scaling adds margin   |
+| Q: capital of Moon?        | "the"       | "the"    | "mars"   | "tokyo"        | "earth"          | "paris"     | "unknown" | 4x more params, STILL hallucinates     |
 
 ## How Scaling Laws Work
 

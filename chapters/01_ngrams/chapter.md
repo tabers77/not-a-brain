@@ -39,13 +39,11 @@ This is a 100% hallucination rate. Every unanswerable question gets a confident-
 
 ### Summary Table
 
-```
-| Prompt                       | Ch01 Bigram | Ch01 Trigram | Correct   | What changed                         |
-|------------------------------|-------------|--------------|-----------|--------------------------------------|
-| ADD 5 3 =                    | "1"         | "9"          | "8"       | Wrong -- can't see operands          |
-| FACT: paris... Q: capital?   | " "         | "p"          | "paris"   | Wrong -- context too far back        |
-| Q: capital of Moon?          | "the"       | "the"        | "unknown" | Hallucination -- always generates    |
-```
+| Prompt                     | Ch01 Bigram | Ch01 Trigram | Correct   | What changed                      |
+|----------------------------|-------------|--------------|-----------|-----------------------------------|
+| ADD 5 3 =                  | "1"         | "9"          | "8"       | Wrong -- can't see operands       |
+| FACT: paris... Q: capital? | " "         | "p"          | "paris"   | Wrong -- context too far back     |
+| Q: capital of Moon?        | "the"       | "the"        | "unknown" | Hallucination -- always generates |
 
 Three prompts, three failures, three different reasons. The rest of this chapter explains the mechanics behind those failures.
 

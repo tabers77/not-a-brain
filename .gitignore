@@ -30,3 +30,4 @@ chapters/*/results/
 
 # Environment variables
 .env
+CLAUDE.md

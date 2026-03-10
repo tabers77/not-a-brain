@@ -49,15 +49,11 @@ Same as n-grams: no abstention mechanism exists. The FFN improved on n-grams for
 
 ### Summary Table
 
-```
-| Prompt                | Ch01 Bigram         | Ch02 FFN (W=8)           | Correct   | What changed                              |
-|-----------------------|---------------------|--------------------------|-----------|-------------------------------------------|
-| ADD 5 3 =             | "1" (sees only "=") | "5" (sees operands,      | "8"       | Wider context -- sees more, but still     |
-|                       |                     |  can't compute)          |           |  can't compute                            |
-| FACT: paris...        | " " (sees only "?") | "is" (sees "france?",    | "paris"   | Wider context -- but answer is still      |
-|                       |                     |  not "paris")            |           |  too far back                             |
-| Q: capital of Moon?   | "the"               | "the"                    | "unknown" | No change -- still 100% hallucination     |
-```
+| Prompt                     | Ch01 Bigram         | Ch02 FFN (W=8)                    | Correct   | What changed                             |
+|----------------------------|---------------------|------------------------------------|-----------|------------------------------------------|
+| ADD 5 3 =                  | "1" (sees only "=") | "5" (sees operands, can't compute) | "8"       | Wider context -- sees more, can't compute |
+| FACT: paris... Q: capital? | " " (sees only "?") | "is" (sees "france?", not "paris") | "paris"   | Wider context -- answer still too far back |
+| Q: capital of Moon?        | "the"               | "the"                              | "unknown" | No change -- still 100% hallucination     |
 
 ## How It Works
 

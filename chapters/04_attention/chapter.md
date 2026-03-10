@@ -82,13 +82,11 @@ Attention made retrieval perfect, but hallucination is worse in a subtle way. Th
 
 ### Summary Table
 
-```
-| Prompt                 | Ch01 Bigram | Ch02 FFN | Ch03 GRU | Ch04 Attention | Correct   | What changed                          |
-|------------------------|-------------|----------|----------|----------------|-----------|---------------------------------------|
-| ADD 5 3 =              | "1"         | "5"      | "5"      | "5"            | "8"       | Attends to operands, but no FFN       |
-| FACT: paris... Q: ...? | " "         | "is"     | "capital"| "paris" (!)    | "paris"   | SOLVED -- attention reaches "paris"   |
-| Q: capital of Moon?    | "the"       | "the"    | "mars"   | "tokyo"        | "unknown" | Still hallucinates -- no abstention   |
-```
+| Prompt                     | Ch01 Bigram | Ch02 FFN | Ch03 GRU | Ch04 Attention | Correct   | What changed                        |
+|----------------------------|-------------|----------|----------|----------------|-----------|-------------------------------------|
+| ADD 5 3 =                  | "1"         | "5"      | "5"      | "5"            | "8"       | Attends to operands, but no FFN     |
+| FACT: paris... Q: capital? | " "         | "is"     | "capital"| "paris" (!)    | "paris"   | SOLVED -- attention reaches "paris" |
+| Q: capital of Moon?        | "the"       | "the"    | "mars"   | "tokyo"        | "unknown" | Still hallucinates -- no abstention |
 
 The pattern: each chapter solves a harder subproblem. Bigrams had no context. The FFN had a window. The RNN had a compressing state. Attention has direct access — and that is enough for retrieval. Computation and abstention remain unsolved.
 

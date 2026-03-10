@@ -74,13 +74,11 @@ The problem is not remembering -- it is knowing when you DON'T know. No amount o
 
 Comparing all architectures so far on the three benchmark prompts:
 
-```
-| Prompt                 | Ch01 Bigram | Ch02 FFN | Ch03 RNN | Ch03 GRU | Correct   | What changed                        |
-|------------------------|-------------|----------|----------|----------|-----------|-------------------------------------|
-| ADD 5 3 =              | "1"         | "5"      | "53"     | "5"      | "8"       | Sees all tokens, but compresses     |
-| FACT: paris...         | " "         | "is"     | "france" | "capital"| "paris"   | No window limit, but state decays   |
-| Q: capital of Moon?    | "the"       | "the"    | "earth"  | "mars"   | "unknown" | Still hallucinates -- no abstention |
-```
+| Prompt                     | Ch01 Bigram | Ch02 FFN | Ch03 RNN | Ch03 GRU | Correct   | What changed                        |
+|----------------------------|-------------|----------|----------|----------|-----------|-------------------------------------|
+| ADD 5 3 =                  | "1"         | "5"      | "53"     | "5"      | "8"       | Sees all tokens, but compresses     |
+| FACT: paris... Q: capital? | " "         | "is"     | "france" | "capital"| "paris"   | No window limit, but state decays   |
+| Q: capital of Moon?        | "the"       | "the"    | "earth"  | "mars"   | "unknown" | Still hallucinates -- no abstention |
 
 Each chapter adds capability but reveals a new bottleneck. The bigram was blind beyond one character. The FFN was blind beyond its window. The RNN can see everything but compresses it into soup. The GRU keeps the soup fresher but still cannot compute or abstain.
 
