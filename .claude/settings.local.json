@@ -8,7 +8,8 @@
       "Bash(for f:*)",
       "Bash(do echo:*)",
       "Read(//c/Users/delacruzribadenc/Documents/Repos/my_own_projects/not-a-brain/**)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(cd \"C:\\\\Users\\\\delacruzribadenc\\\\Documents\\\\Repos\\\\my_own_projects\\\\not-a-brain\" && pip install -e \".[dev]\" -q 2>&1 | tail -5)"
     ]
   }
 }
