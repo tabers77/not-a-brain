@@ -79,3 +79,49 @@ How they relate to earlier chapters:
 | **MCTS + PRM** | Ch12 (Verify) + new PRM model | Replaces self-verification with a trained judge; replaces random sampling with guided search |
 
 All three improve accuracy on solvable tasks by searching more systematically. None solves hallucination — because search can't find an answer ("I don't know") that the scoring function ranks low.
+
+## What other types of questions could attention (Ch04) have solved compared to previous methods?
+
+Attention's breakthrough is **direct access to any position** regardless of distance. Beyond `"capital of france?"`, attention could solve any task where the answer requires **looking up specific tokens far back in the input**:
+
+- **Any factual retrieval with long context** — e.g. `"FACT: tokyo is capital of japan. Q: capital of japan?"`. The FFN (Ch02) couldn't see anything beyond 8 characters back, and the RNN (Ch03) compressed distant tokens into unrecoverable mush. Attention reaches position 6 just as easily as position 50.
+- **Copy tasks over long distances** — e.g. `"COPY hello | "` where the content to copy is far from the output position. The Ch04 attention heatmaps confirm this: bright cells connect output positions (after `"|"`) back to input characters.
+- **Pattern matching across the full sequence** — any task where you need to find a keyword/entity mentioned earlier and retrieve something near it. Multi-head attention lets different heads do keyword matching (Head 1 matches `"capital"` in question to `"capital"` in fact) and entity retrieval (Head 0 retrieves `"paris"`) simultaneously.
+
+**The key limitation**: attention can only **retrieve and blend** (weighted average of value vectors). Tasks requiring **computation** on retrieved tokens (like arithmetic) still fail. Anything that is pure lookup — "find X and return it" — is what attention unlocks over FFN and RNN.
+
+## Where exactly does the Transformer learn addition? Is it GELU?
+
+Yes — **the FFN block is where computation happens**, and GELU is the critical component. From Ch05 (`chapter.md:102-131`):
+
+```
+FFN(x) = GELU(x W1 + b1) W2 + b2
+```
+
+The three steps:
+
+1. **Expand**: `x W1 + b1` — project from 64 dims to 128 dims (gives room to disentangle features)
+2. **GELU activation** — the nonlinearity that makes computation possible. It zeros out irrelevant neurons and activates relevant ones, creating a **sparse code** for `"ADD(5,3)"`. Some neurons fire for "digit+digit in ADD context," others for "sums near 8," others are zeroed because they handle different operations.
+3. **Compress**: `h W2 + b2` — project back from 128 to 64 dims
+
+**Why GELU specifically matters**: Attention produces a **weighted average** of value vectors, which is a **linear** operation. You can't get `"8"` from a weighted average of the embeddings of `"5"` and `"3"` — that's just blending. But `GELU(x W1 + b1)` is **nonlinear** — the expand-activate-compress pattern can represent arbitrary functions, including `"5 + 3 = 8"`.
+
+It's not GELU alone — it's the full **expand → nonlinear activate → compress** pipeline. But GELU is the essential ingredient that makes it nonlinear. Without it (i.e., with just linear layers), the FFN would collapse to another linear operation, no better than attention's weighted average.
+
+**Summary**: Attention solves **WHERE** (find the operands `5` and `3`). The FFN with GELU solves **WHAT TO DO** (compute `5 + 3 = 8`).
+
+## Does advanced reasoning (Ch13) solve the first prompt using the Transformer directly?
+
+**Yes.** All three advanced reasoning techniques (ReAct, ToT, MCTS) are built **on top of** the same `TransformerLM` from Ch05. From `chapter.md:9`:
+
+> *All use the same TransformerLM architecture.*
+
+The Transformer is the base model that powers everything from Ch05 onward. Ch13 **composes** all prior techniques:
+
+- **ReAct** = Ch12 reasoning (THINK markers) + Ch11 tool use (CALL/RESULT protocol) + the underlying Transformer
+- **ToT** = multiple Transformer generations + scoring via log-probabilities
+- **MCTS** = Transformer generation + a separately trained PRM (also a small neural net) guiding search
+
+The SFT baseline in Ch13 already gets `"ADD 5 3 ="` → `"8"` correct — that was solved at Ch05 and stays solved. ReAct gets it right too but **outsources to a calculator tool** for deterministic correctness. ToT and MCTS also get it right by searching multiple reasoning paths.
+
+All old capabilities (attention for retrieval, FFN for computation) are fully inherited. Each chapter layers new techniques on the same Transformer foundation rather than replacing it.
