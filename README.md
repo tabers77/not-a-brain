@@ -11,7 +11,7 @@ The twist: every chapter runs the **same tasks through two lenses** — an LLM a
 ## Core Principles
 
 - **Synthetic toy datasets, not web text** — data is generated on the fly (algorithmic tasks, tiny grammars, controlled facts) so you can isolate phenomena like hallucination and reasoning
-- **Small models, short runs** — 50k-500k parameters, minutes of training, clear right/wrong answers
+- **Small models, short runs** — ~5K-30K parameters, minutes of training, clear right/wrong answers
 - **Every chapter produces an artifact** — a runnable notebook, a training run, evals, and a "what you should observe" section
 - **Two minds, same questions** — every experiment compares the LLM approach with a human cognitive model
 
@@ -31,7 +31,9 @@ The twist: every chapter runs the **same tasks through two lenses** — an LLM a
 | | 09 | Decoding & Hallucination | Sampling choices change error rates |
 | **Modern Stack** | 10 | RAG Minimal | Grounding improves factuality without retraining |
 | | 11 | Tools & Function Calls | External tools change reliability |
-| | 12 | Reasoning Scaffolds | "Reasoning" as an algorithm around the model |
+| | 12 | Reasoning Scaffolds | CoT, self-consistency, verify — structure without understanding |
+| | 13 | Advanced Reasoning | ReAct, Tree of Thoughts, MCTS+PRM — search without understanding |
+| **Capstone** | 14 | Scale Is Not Understanding | Coverage ≠ comprehension: memorization vs. world models |
 
 ## The Human Lens
 
@@ -57,7 +59,7 @@ not-a-brain/
     evals/           # Eval harness + metrics (accuracy, calibration, hallucination rate)
     dashboard/       # HTML report generation with matplotlib plots
     utils/           # Training loop, visualization helpers
-  chapters/          # 00-12, each with chapter.md (theory) + run.py (code) + results/
+  chapters/          # 00-14, each with chapter.md (theory) + run.py (code) + results/
   documentation/     # Implementation details
   tests/             # Unit + behavioral tests
 ```
@@ -114,15 +116,15 @@ Every chapter traces the **same 3 benchmark prompts** through that chapter's mod
 |--------|-------|-----------|
 | `"ADD 5 3 ="` → `"8"` | Computation | Chapter 05 (Transformer) — needs retrieval + FFN |
 | `"FACT: paris is capital of france. Q: capital of france?"` → `"paris"` | Retrieval | Chapter 04 (Attention) — needs direct access to context |
-| `"Q: What is the capital of the Moon?"` → `"unknown"` | Hallucination | **Never** — no architecture from 01-05 can abstain |
+| `"Q: What is the capital of the Moon?"` → `"unknown"` | Hallucination | **Never** — no architecture, training method, or reasoning scaffold can abstain |
 
-The punchline: better architectures improve accuracy but never fix hallucination. That requires an explicit uncertainty mechanism (Chapters 06+).
+The punchline: 14 chapters of increasingly sophisticated techniques — n-grams, neural nets, attention, transformers, scaling, instruction tuning, RLHF, decoding, RAG, tools, CoT, tree search, MCTS — and the Moon question is never solved. Ch14 shows that even when the exact answer is memorized, rephrasing breaks it.
 
 See `documentation/CHAPTER_GUIDE.md` for the full writing spec.
 
 ## Status
 
-This project is under active development. Phase 1 (Chapters 00-05) is the current focus.
+Complete. All 15 chapters (00-14) implemented with code, tests (329 passing), and written theory.
 
 ## License
 

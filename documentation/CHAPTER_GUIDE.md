@@ -33,11 +33,25 @@ This table summarizes what each model does with each prompt. Use these as the ba
 | 06 | Small Transformer | `"8"` (correct — enough capacity) | `"paris"` (correct) | `"mars"` (hallucinates) |
 | 06 | Medium Transformer | `"8"` (correct, robust) | `"paris"` (correct) | `"tokyo"` (hallucinates) |
 | 06 | Large Transformer | `"8"` (correct, robust) | `"paris"` (correct) | `"paris"` (hallucinates — picks common capital) |
+| 07 | SFT model | `"8"` (correct) | `"paris"` (correct) | `"earth"` (hallucinates — format compliance, not understanding) |
+| 08 | DPO model | `"8"` (correct) | `"paris"` (correct) | `"earth"` (hallucinates — preference alignment doesn't add knowledge) |
+| 09 | Decoding agents | `"8"` (correct, all strategies) | `"paris"` (correct) | `"earth"` (hallucinates — every decoding strategy) |
+| 10 | RAG agent | `"8"` (correct) | `"paris"` (correct) | `"paris"` (hallucinates — BM25 keyword-matches "capital") |
+| 11 | Tool agent | `"8"` (correct via calc tool) | `"paris"` (correct) | `"paris"` (hallucinates — tool returns wrong context) |
+| 12 | CoT agent | `"8"` (correct with reasoning) | `"paris"` (correct) | `"tokyo"` (hallucinates with plausible-sounding reasoning) |
+| 12 | Self-Consistency | `"8"` (80% agreement) | `"paris"` (100% agreement) | `"tokyo"` (votes for most popular hallucination) |
+| 12 | Verify agent | `"8"` (verified YES) | `"paris"` (verified YES) | `"tokyo"` (verifier approves wrong answer) |
+| 13 | ReAct agent | `"8"` (via calc tool) | `"paris"` (via lookup) | `"paris"` (tool keyword-match + reasoning) |
+| 13 | ToT agent | `"8"` (best-scoring branch) | `"paris"` (all branches agree) | `"tokyo"` (highest log-prob branch) |
+| 13 | MCTS + PRM | `"8"` (PRM-guided) | `"paris"` (PRM-guided) | `"paris"` (PRM scores hallucination highest) |
+| 14 | Level 0 (no abstention) | `"8"` (correct) | `"paris"` (correct) | `"tokyo"` (no abstention concept) |
+| 14 | Level 1 (Moon only) | `"8"` (correct) | `"paris"` (correct) | `"unknown"` (memorized exact question only) |
+| 14 | Level 4 (30 patterns) | `"8"` (correct) | `"paris"` (correct) | `"unknown"` (memorized — rephrases still break) |
 
 **Key narrative across chapters:**
-- **Prompt 1 (computation)**: Only solved when we get both retrieval (attention, Ch04) AND computation (FFN, Ch05)
-- **Prompt 2 (retrieval)**: Solved once we get direct access to distant positions (attention, Ch04)
-- **Prompt 3 (abstention)**: NEVER solved by any architecture or scale — requires an explicit uncertainty mechanism. This is the punchline: better architecture AND more parameters help accuracy but not hallucination
+- **Prompt 1 (computation)**: Only solved when we get both retrieval (attention, Ch04) AND computation (FFN, Ch05). Stays solved through all subsequent chapters.
+- **Prompt 2 (retrieval)**: Solved once we get direct access to distant positions (attention, Ch04). Stays solved — but Ch12 shows the Reversal Curse: reverse the question direction and even this "solved" prompt breaks, revealing directional correlation rather than symmetric knowledge.
+- **Prompt 3 (abstention)**: NEVER solved by any architecture, training method, or reasoning scaffold. Ch14 shows that even when the exact answer is memorized, rephrasing breaks it. This is the punchline: better architecture AND more parameters AND reasoning scaffolds AND search algorithms help accuracy but not hallucination.
 
 ### How to Write Each Running Example
 

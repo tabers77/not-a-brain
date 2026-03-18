@@ -565,6 +565,51 @@ def main() -> None:
         print()
 
     # ------------------------------------------------------------------
+    # 5b. Reversal Curse probe
+    # ------------------------------------------------------------------
+    print(f"\n{'-' * 50}")
+    print("Reversal Curse: Does 'A is B' transfer to 'B is A'?")
+    print(f"{'-' * 50}")
+    print()
+    print("The model was trained on 'paris is capital of france'.")
+    print("Can it answer the REVERSE: 'france is the country whose capital is?'")
+    print()
+
+    reversal_prompts = [
+        # Forward (should work — matches training direction)
+        ("FACT: paris is capital of france. Q: capital of france?",
+         "Forward (trained direction)", "paris"),
+        # Reversed (tests bidirectional understanding)
+        ("FACT: paris is capital of france. Q: france is the country whose capital is?",
+         "Reversed (untrained direction)", "paris"),
+        ("FACT: paris is capital of france. Q: which country has paris as capital?",
+         "Reversed (rephrased)", "france"),
+        ("FACT: cat eats fish. Q: what does cat eat?",
+         "Forward (trained direction)", "fish"),
+        ("FACT: cat eats fish. Q: fish is eaten by?",
+         "Reversed (untrained direction)", "cat"),
+    ]
+
+    for prompt, direction, expected in reversal_prompts:
+        print(f"  [{direction}]")
+        print(f"    Prompt:   '{prompt}'")
+        print(f"    Expected: '{expected}'")
+        sft_out = sft_agent.run(prompt)
+        cot_out = cot_agent.run(prompt)
+        print(f"    SFT:      '{sft_out.answer}'  "
+              f"{'OK' if expected in sft_out.answer else 'FAIL'}")
+        print(f"    CoT:      '{cot_out.answer}'  "
+              f"{'OK' if expected in cot_out.answer else 'FAIL'}")
+        if cot_out.trace:
+            print(f"              {cot_out.trace[0][:80]}")
+        print()
+
+    print("The Reversal Curse (Song et al., 2026): models trained on")
+    print("'A is B' cannot infer 'B is A'. The model stores directional")
+    print("statistical correlations, not symmetric knowledge.")
+    print()
+
+    # ------------------------------------------------------------------
     # 6. Evaluate
     # ------------------------------------------------------------------
     eval_tasks = {

@@ -125,6 +125,8 @@ What actually happens:
 
 Search algorithms are only as good as their search space and scoring function. When the scoring function systematically prefers hallucination over abstention, more search means more efficient hallucination.
 
+This connects to a broader pattern documented in the reasoning failures literature (Song, Han & Goodman, "Large Language Model Reasoning Failures," 2026): compositional reasoning failures, where models succeed on individual facts but fail when combining them, stem from the same root cause as our search failures. The model can't compose "the Moon is not a country" with "capitals belong to countries" because it stores these as independent statistical patterns, not composable logical facts. More search iterations don't help — they just compose the same non-composable patterns more efficiently.
+
 ### Summary Table
 
 | Prompt                     | SFT     | ReAct        | ToT          | MCTS         | Correct   | What changed                      |
@@ -290,6 +292,8 @@ The model searches more efficiently than Ch12's single-chain approach, but it se
 - **Model search**: guided by probability, converges on "most common pattern"
 
 This is the deepest version of the project's thesis. Even with search algorithms from AlphaGo, trained reward models from RLHF, and the reasoning patterns behind o1/o3 — the model cannot arrive at "I don't know" because its search space and scoring function don't support it.
+
+The same survey that documents the Reversal Curse (Song et al., 2026) finds that these failures persist at GPT-4 scale and beyond. Their taxonomy distinguishes *fundamental architectural failures* (intrinsic to next-token prediction) from *application-specific limitations* (domain-tied). What we show here is that ToT, MCTS, and PRM are application-level mitigations — they can't fix what's fundamentally missing at the architectural level. The scoring function and the generator share the same architectural blind spot: probability over tokens, not understanding of concepts.
 
 ## What to Observe When Running
 

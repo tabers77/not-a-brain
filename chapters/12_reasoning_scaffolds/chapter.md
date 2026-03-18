@@ -86,6 +86,27 @@ Majority vote picks "tokyo" or "paris" (whichever appears most). Self-consistenc
 
 **Verify**: Generates "tokyo", then verifies: "tokyo answers capital of the Moon? YES". The model approves its own wrong answer because it cannot distinguish a correct answer from a confident hallucination. Verification requires the same judgment the model lacks.
 
+### The Reversal Curse: Even Prompt 2 Can Break
+
+Every chapter gets Prompt 2 right — `"FACT: paris is capital of france. Q: capital of france?"` → `"paris"`. This seems robust. But reverse the question direction and it breaks:
+
+```
+Forward (trained direction):
+  "FACT: paris is capital of france. Q: capital of france?" -> "paris"  OK
+
+Reversed (untrained direction):
+  "FACT: paris is capital of france. Q: france is the country whose capital is?" -> ???  FAIL
+  "FACT: paris is capital of france. Q: which country has paris as capital?" -> ???  FAIL
+```
+
+The model was trained on "paris is capital of france" — so it learns to predict "paris" after "capital of france." But it never learned to predict "france" after "paris as capital." The relationship is stored as a one-directional statistical correlation, not as a symmetric fact.
+
+This is the **Reversal Curse** (Song, Han & Goodman, 2026): models trained on "A is B" systematically fail to infer "B is A" — a trivially bidirectional equivalence for humans. It was first observed in GPT-family models and traced to the uni-directional training objective (causal language modeling). Because the model only predicts left-to-right, it learns `P(paris | capital of france)` but not `P(france | paris as capital)`.
+
+**Why CoT doesn't help**: Chain-of-thought generates reasoning in the trained direction. The THINK: tokens follow the same left-to-right statistical patterns as the answer. When the question reverses the direction, the reasoning fails along with the answer.
+
+**Why this matters**: It reveals that even the "easy" benchmark prompt — the one every chapter gets right — is only correct because it matches the training direction. The model doesn't know that "paris is capital of france" is equivalent to "france is the country whose capital is paris." It stored a pattern, not a fact.
+
 ### Why Reasoning Scaffolds Fail on Prompt 3
 
 ```
@@ -201,6 +222,7 @@ The model treats reasoning as text to predict, not as logic to follow. It genera
 - **Reasoning validity**: CoT generates text that looks like reasoning but follows probability, not logic
 - **Self-verification**: A model cannot reliably check its own work because verification requires the same knowledge as answering
 - **Hallucination on unknowns**: Self-consistency votes for the most popular hallucination; verify approves confident errors
+- **Directional knowledge**: The Reversal Curse shows that even "correct" retrieval only works in the trained direction — reasoning scaffolds cannot make one-directional correlations bidirectional
 
 ### Comparison: Chapter 11 vs Chapter 12
 
@@ -238,6 +260,8 @@ The model's "reasoning" is fluent text generation, not logical deduction. It doe
 
 This is the thesis of the entire project: **similar outputs != same mechanism**. The model can generate text that looks like reasoning, but the underlying process is fundamentally different from human cognition. And that difference matters most precisely when the answer is "I don't know."
 
+A comprehensive survey of LLM reasoning failures (Song, Han & Goodman, "Large Language Model Reasoning Failures," 2026) catalogs these same failure modes at GPT-4 scale: cognitive biases from causal attention, compositional reasoning breakdowns, circular self-verification, and the Reversal Curse. What we demonstrate here with ~30K parameters, they document across frontier models with trillions. The root cause is the same: next-token prediction learns statistical correlations, not logical structure. Architecture and scale change the *coverage*, not the *mechanism*.
+
 ## What to Observe When Running
 
 Run `python chapters/12_reasoning_scaffolds/run.py` and notice:
@@ -266,12 +290,4 @@ A bar chart showing hallucination rate on unknown questions for every chapter (C
 
 ## What's Next
 
-There is no Chapter 13.
-
-This project set out to show that **similar outputs do not imply the same mechanism**. An LLM can produce text that looks like understanding, reasoning, and judgment. But the mechanism — next-token prediction over learned statistical patterns — is fundamentally different from human cognition.
-
-The 12 chapters trace a path from n-grams to reasoning scaffolds. Each chapter adds a genuine capability: attention adds retrieval, transformers add computation, tools add external capabilities, reasoning adds structure. But no technique adds the one thing needed for honest uncertainty: a model of what the system knows and doesn't know.
-
-That's not a limitation to be engineered around. It's a structural difference to be understood.
-
-That's why it's called "not a brain."
+Chapter 13 goes deeper: **ReAct** (reasoning + tool use in a single loop), **Tree of Thoughts** (reasoning as branching search), and **MCTS + Process Reward Model** (the approach behind o1/o3 — a separately trained model scores intermediate reasoning steps). These are the most sophisticated reasoning algorithms in production today. The finding: they search more efficiently, but through the same probability landscape. More compute doesn't change the landscape — it just explores it more thoroughly. For "capital of the Moon?", every path in the search space still leads to hallucination.

@@ -131,6 +131,10 @@ Real-world evidence that frontier LLMs still pattern-match rather than understan
 2. **Novel category errors**: LLMs can be tricked by questions that combine familiar concepts in unfamiliar ways
 3. **Instruction following vs. reasoning**: LLMs follow the *format* of abstention ("I'm not sure about...") without genuine uncertainty awareness
 4. **Sycophancy**: When users push back, LLMs often abandon correct abstention — suggesting the "I don't know" was a learned pattern, not a reasoned conclusion
+5. **The Reversal Curse**: Models trained on "A is B" cannot infer "B is A" — even frontier models store directional correlations, not symmetric facts (Song, Han & Goodman, 2026)
+6. **Perturbation brittleness**: Logic-preserving transformations (reordering options, renaming entities, rephrasing questions) cause performance drops on benchmarks the model supposedly "solved" — the same pattern we demonstrate with our rephrased Moon questions (Song et al., 2026)
+
+The first systematic survey of LLM reasoning failures (Song, Han & Goodman, "Large Language Model Reasoning Failures," 2026) provides large-scale evidence for exactly this thesis. Their two-axis taxonomy — reasoning type (formal/informal/embodied) crossed with failure type (fundamental/application-specific/robustness) — shows that the failures we demonstrate at toy scale with ~30K parameters persist identically at frontier scale with trillions of parameters. The root causes they identify are the same ones we trace through 14 chapters: the next-token prediction objective, causal attention's directional bias, and training data distributions that encode correlation without causation. Scale changes the coverage. It does not change the mechanism.
 
 ### The Coverage-Understanding Spectrum
 

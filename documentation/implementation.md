@@ -2,13 +2,13 @@
 
 ## Goal
 
-Build a progressive, educational repository that walks ML practitioners through the evolution of language models (n-grams to reasoning scaffolds) in 12 chapters, each with runnable code, tiny trainable models, and a side-by-side comparison with a toy human cognitive agent. Every chapter produces notebooks, scripts, evals, and visual outputs — culminating in a dashboard that shows capability jumps across the entire timeline.
+Build a progressive, educational repository that walks ML practitioners through the evolution of language models (n-grams to reasoning scaffolds) in 15 chapters (00-14), each with runnable code, tiny trainable models, and a side-by-side comparison with a toy human cognitive agent. Every chapter produces scripts, evals, and visual outputs — culminating in a dashboard that shows capability jumps across the entire timeline.
 
 **Thesis**: "Similar outputs != same mechanism" — LLMs can look like they reason but the mechanism and failure modes are fundamentally different from human cognition.
 
 ## Non-Goals
 
-- **Not building a production LLM** — models are intentionally tiny (50k-500k params)
+- **Not building a production LLM** — models are intentionally tiny (~5K-30K params)
 - **Not simulating a real brain** — the human-agent is a didactic toy, not neuroscience
 - **Not chasing SOTA** — the point is understanding, not benchmarks
 - **Not requiring GPUs** — everything runs on a laptop CPU in minutes
@@ -32,9 +32,10 @@ Three phases, each delivering a complete, usable repo:
 |-------|----------|----------|
 | **Phase 1: Foundation** | 00-05 | Core evolution from n-grams to Transformer. Shared infra, task suite, human-agent v1, dashboard skeleton |
 | **Phase 2: Behaviors** | 06-09 | Hallucination, memory, RAG, decoding — the "why LLMs do weird things" chapters |
-| **Phase 3: Modern Stack** | 10-12 | Instruction tuning, tools, reasoning scaffolds — "where we are now" |
+| **Phase 3: Modern Stack** | 10-12 | RAG, tools, reasoning scaffolds — "where we are now" |
+| **Phase 4: Advanced & Capstone** | 13-14 | Advanced reasoning (ReAct, ToT, MCTS+PRM) and the "Scale Is Not Understanding" capstone |
 
-Each phase is self-contained and publishable. Phase 1 alone is a strong repo. The shared infrastructure (task API, eval harness, human-agent, dashboard) is designed from day 1 to support all 12 chapters.
+Each phase is self-contained and publishable. Phase 1 alone is a strong repo. The shared infrastructure (task API, eval harness, human-agent, dashboard) is designed from day 1 to support all 15 chapters.
 
 ---
 
@@ -127,6 +128,10 @@ not-a-brain/
     11_tools_and_function_calls/
       ...
     12_reasoning_scaffolds/
+      ...
+    13_advanced_reasoning/
+      ...
+    14_scale_is_not_understanding/
       ...
 
   human_lens/
@@ -349,22 +354,41 @@ The 6 cognitive ingredients scored per chapter:
 - **Key finding**: RAG improves knowledge QA but still hallucinates on unanswerable questions — BM25 retrieves by keyword match, not semantic relevance
 - **Human lens**: "Humans seek evidence and reconcile contradictions; RAG only does step 1 (seek)"
 
-**>>> NEXT STEP: Step 18 <<<**
-
-#### Step 18: Chapter 11 — Tools & Function Calling
-- **What**: Give tiny GPT a calculator and lookup tool via simple interface
+#### Step 18: Chapter 11 — Tools & Function Calling — DONE
+- **What**: Give tiny GPT a calculator and lookup tool via `CALL:tool(args) RESULT:value` format
+- **Implements**: `ToolCallingAgent`, `tool_calc`, `tool_lookup` with BM25 in `chapters/11_tools_and_function_calls/run.py`
 - **Chapter**: `chapters/11_tools_and_function_calls/chapter.md` + `run.py`
+- **Test**: `pytest tests/test_tools.py`
+- **Results**: Tools add external computation but still hallucinate on unknowns — keyword-match retrieval returns wrong context
 - **Human lens**: "Humans naturally use tools; LLMs need explicit interfaces"
 
-#### Step 19: Chapter 12 — Reasoning Scaffolds
-- **What**: Self-consistency, verifier loop, tree search (tiny ToT)
+#### Step 19: Chapter 12 — Reasoning Scaffolds — DONE
+- **What**: CoT (THINK: marker), self-consistency (majority vote over N temperature samples), verify-then-revise, and reversal curse probe
+- **Implements**: `SFTAgent`, `CoTAgent`, `SelfConsistencyAgent`, `VerifyAgent` in `chapters/12_reasoning_scaffolds/run.py`
 - **Chapter**: `chapters/12_reasoning_scaffolds/chapter.md` + `run.py`
+- **Test**: `pytest tests/test_reasoning.py`
+- **Results**: CoT helps solvable tasks, self-consistency reduces variance. All scaffolds hallucinate on unknowns. Reversal curse shows even Prompt 2 breaks when question direction is reversed.
 - **Human lens**: "Humans also search and verify, but with richer world models"
 
-#### Step 20: Final dashboard + docs
-- **What**: Full dashboard across all 12 chapters, polished docs, README
-- **Files**: `docs/`, `human_lens/`, `README.md`
-- **Cognitive ingredients heatmap**: visual summary of what each chapter's LLM has vs human-agent
+#### Step 20: Chapter 13 — Advanced Reasoning — DONE
+- **What**: ReAct (reasoning + tool use), Tree of Thoughts (branching search), MCTS + Process Reward Model (the o1/o3 approach)
+- **Implements**: `ReActAgent`, `ToTAgent`, `MCTSAgent`, `ProcessRewardModel` in `chapters/13_advanced_reasoning/run.py`
+- **Chapter**: `chapters/13_advanced_reasoning/chapter.md` + `run.py`
+- **Test**: `pytest tests/test_advanced_reasoning.py`
+- **Results**: All algorithms improve accuracy on solvable tasks. For Moon question, every search path leads to hallucination. PRM has the same blind spots as the generator.
+- **Human lens**: "Human search is guided by understanding; model search is guided by probability"
+
+#### Step 21: Chapter 14 — Scale Is Not Understanding — DONE
+- **What**: Train models at 5 coverage levels (0-30 abstention patterns). Test on in-distribution, rephrased, and novel questions. Shows scale = coverage ≠ understanding.
+- **Implements**: Coverage-level agents, rephrase/novel test suites in `chapters/14_scale_is_not_understanding/run.py`
+- **Chapter**: `chapters/14_scale_is_not_understanding/chapter.md` + `run.py`
+- **Test**: `pytest tests/test_scale.py`
+- **Results**: In-distribution accuracy climbs with coverage. Rephrase accuracy lags. Novel accuracy stays near zero. Gap between Level 4 and Human on novel questions = the thesis.
+- **Human lens**: "O(1) reasoning from principles vs O(N) memorization of patterns"
+
+#### Step 22: Final dashboard + docs — DONE
+- **What**: Full dashboard across all 15 chapters, polished docs, README
+- **Files**: `documentation/`, `README.md`
 
 ---
 
@@ -383,7 +407,7 @@ Generated via `python -m not_a_brain.dashboard.generate`, the HTML report includ
 
 ## Verification Plan
 
-1. `pytest tests/` — all unit tests pass (currently 104 passing)
+1. `pytest tests/` — all unit tests pass (currently 329 passing)
 2. `python -m not_a_brain.dashboard.generate` — produces valid HTML with all chapters
 3. Each `chapters/XX/run.py` completes in < 5 minutes on CPU
 4. Each `chapters/XX/chapter.md` has LaTeX formulas, step-by-step logic, and human lens
