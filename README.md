@@ -2,7 +2,7 @@
 
 **LLMs from Scratch, for Real:** build a tiny Transformer, then reproduce memory, hallucinations, and reasoning — with minimal data and clear experiments. Then compare every step with how humans actually think.
 
-> **Companion repo** for the article [*"Why Bigger Models Still Don't Think (and What Comes Next)"*](https://medium.com/latinxinai/why-bigger-models-still-dont-think-and-what-comes-next). The article walks through the findings; this repo contains all the code, models, and experiments behind them.
+> **Companion repo** for the article [*"Why Bigger Models Still Don't Think (and What Comes Next)"*]. The article walks through the findings; this repo contains all the code, models, and experiments behind them.
 
 ## What is this?
 
