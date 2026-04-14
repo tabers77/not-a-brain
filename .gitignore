@@ -31,3 +31,5 @@ chapters/*/results/
 # Environment variables
 .env
 CLAUDE.md
+.claude
+my_understanding.md
