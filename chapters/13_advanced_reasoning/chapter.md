@@ -295,6 +295,8 @@ This is the deepest version of the project's thesis. Even with search algorithms
 
 The same survey that documents the Reversal Curse (Song et al., 2026) finds that these failures persist at GPT-4 scale and beyond. Their taxonomy distinguishes *fundamental architectural failures* (intrinsic to next-token prediction) from *application-specific limitations* (domain-tied). What we show here is that ToT, MCTS, and PRM are application-level mitigations — they can't fix what's fundamentally missing at the architectural level. The scoring function and the generator share the same architectural blind spot: probability over tokens, not understanding of concepts.
 
+This holds even for models explicitly designed to reason. Chen et al. (2025) showed that frontier reasoning models (Claude 3.7 Sonnet, DeepSeek R1) often fail to verbalize the actual factors driving their outputs, and Mirzadeh et al. (ICLR 2025) found that adding a single irrelevant clause to math problems dropped performance by up to 65% — suggesting that what these models search through is memorized reasoning trajectories, not logical structure.
+
 ## What to Observe When Running
 
 Run `python chapters/13_advanced_reasoning/run.py` and notice:

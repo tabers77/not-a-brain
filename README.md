@@ -2,11 +2,27 @@
 
 **LLMs from Scratch, for Real:** build a tiny Transformer, then reproduce memory, hallucinations, and reasoning — with minimal data and clear experiments. Then compare every step with how humans actually think.
 
+> **Companion repo** for the article [*"Why Bigger Models Still Don't Think (and What Comes Next)"*](https://medium.com/latinxinai/why-bigger-models-still-dont-think-and-what-comes-next). The article walks through the findings; this repo contains all the code, models, and experiments behind them.
+
 ## What is this?
 
 A hands-on, progressive repository that walks you through the entire evolution of language models — from n-grams to reasoning scaffolds — while keeping everything **small, runnable on a laptop, and explainable**. No massive datasets, no GPU clusters, no black boxes.
 
 The twist: every chapter runs the **same tasks through two lenses** — an LLM and a toy human cognitive agent — to show that **similar outputs do not mean the same mechanism**. LLMs can look like they reason, but the mechanism and failure modes are fundamentally different from human cognition.
+
+### Coming from the article?
+
+The article references specific chapters by number. Here's how they map:
+
+| Article section | Repo chapter |
+|---|---|
+| The Three Prompt Test | Every chapter — see `documentation/CHAPTER_GUIDE.md` |
+| Chapters 01-06 (architecture ladder) | `chapters/01_ngrams/` through `chapters/06_scaling_laws/` |
+| Chapters 07-13 (scaffolds & search) | `chapters/07_instruction_tuning/` through `chapters/13_advanced_reasoning/` |
+| Chapter 14 (coverage levels) | `chapters/14_scale_is_not_understanding/` |
+| The toy human agent | `src/not_a_brain/human_agent/` |
+
+Each chapter has a `run.py` you can execute and a `chapter.md` with the full theory.
 
 ## Core Principles
 
@@ -68,7 +84,7 @@ not-a-brain/
 
 ```bash
 # Clone and set up
-git clone https://github.com/your-username/not-a-brain.git
+git clone https://github.com/tabers77/not-a-brain.git
 cd not-a-brain
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate

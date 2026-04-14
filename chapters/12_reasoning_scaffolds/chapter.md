@@ -262,6 +262,8 @@ This is the thesis of the entire project: **similar outputs != same mechanism**.
 
 A comprehensive survey of LLM reasoning failures (Song, Han & Goodman, "Large Language Model Reasoning Failures," 2026) catalogs these same failure modes at GPT-4 scale: cognitive biases from causal attention, compositional reasoning breakdowns, circular self-verification, and the Reversal Curse. What we demonstrate here with ~30K parameters, they document across frontier models with trillions. The root cause is the same: next-token prediction learns statistical correlations, not logical structure. Architecture and scale change the *coverage*, not the *mechanism*.
 
+Recent work on frontier reasoning models reinforces this point. Chen et al. ("Reasoning Models Don't Always Say What They Think," 2025) found that when Claude 3.7 Sonnet and DeepSeek R1 relied on reasoning hints, their chain-of-thought traces often failed to reveal it — the traces look deliberate but do not transparently reflect the computation underneath. Turpin et al. ("Language Models Don't Always Say What They Think," NeurIPS 2023) showed that CoT explanations can be unfaithful or post-hoc, confidently rationalizing biased answers without acknowledging the bias. Mirzadeh et al. ("GSM-Symbolic," ICLR 2025) further found that minor wording changes in math problems, including adding a single irrelevant clause, could sharply reduce performance — consistent with pattern replication rather than genuine computation.
+
 ## What to Observe When Running
 
 Run `python chapters/12_reasoning_scaffolds/run.py` and notice:

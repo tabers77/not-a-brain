@@ -4,6 +4,8 @@
 
 Build a progressive, educational repository that walks ML practitioners through the evolution of language models (n-grams to reasoning scaffolds) in 15 chapters (00-14), each with runnable code, tiny trainable models, and a side-by-side comparison with a toy human cognitive agent. Every chapter produces scripts, evals, and visual outputs — culminating in a dashboard that shows capability jumps across the entire timeline.
 
+This repo is the experimental companion to the article *"Why Bigger Models Still Don't Think (and What Comes Next)."*
+
 **Thesis**: "Similar outputs != same mechanism" — LLMs can look like they reason but the mechanism and failure modes are fundamentally different from human cognition.
 
 ## Non-Goals
